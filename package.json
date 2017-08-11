@@ -4,6 +4,7 @@
   "description": "Project",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "postinstall": "bower install && gulp deploy"
   },
   "author": "Alex Chin <alex@alexchin.co.uk>",
