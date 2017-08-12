@@ -1,0 +1,20 @@
+<h1>Register</h1>
+<form ng-submit="controller.register()">
+
+    <input type="text" name="username" ng-model="controller.user.username" placeholder="Nick Name">
+
+    <input type="text" name="firstName" ng-model="controller.user.firstName" placeholder="First name">
+
+    <input type="text" name="lastName" ng-model="controller.user.lastName" placeholder="Last name">
+
+    <input type="text" name="image" ng-model="controller.user.image" placeholder="Image">
+
+    <input type="email" name="email" ng-model="controller.user.email" placeholder="Email">
+
+    <input type="password" name="password" ng-model="controller.user.password" placeholder="Password">
+
+    <input type="password" name="passwordConfirmation" ng-model="controller.user.passwordConfirmation" placeholder="Password confirmation">
+
+  <input class="btn" type="submit" value="Submit" />
+
+</form>
