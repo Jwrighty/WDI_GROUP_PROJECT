@@ -1,0 +1,16 @@
+<h1>Add a Group</h1>
+
+<form ng-submit="vm.create()">
+  <label for="title">Title</label>
+  <input type="text" name="title" id="title" ng-model="vm.group.title">
+
+  <label for="image">Image URL</label>
+  <input type="text" name="image" id="image" ng-model="vm.group.image">
+
+  <label for="dates">Date</label>
+  <input type="text" name="dates" id="dates" ng-model="vm.group.dates">
+
+  <button role="button" ui-sref="groupsIndex">Cancel</button>
+
+  <button type="submit" class="pure-button pure-button-primary"></button>
+</form>
