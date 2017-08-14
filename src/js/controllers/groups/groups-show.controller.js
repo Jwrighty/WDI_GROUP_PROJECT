@@ -1,9 +1,9 @@
 angular
   .module('project3')
-  .controller('GroupsShowCtrl', GroupShowCtrl);
+  .controller('GroupsShowCtrl', GroupsShowCtrl);
 
 GroupsShowCtrl.$inject = ['Group', '$stateParams'];
-function GroupShowCtrl(Group, $stateParams) {
+function GroupsShowCtrl(Group, $stateParams) {
   const vm = this;
   vm.group = {};
 
