@@ -3,7 +3,7 @@
 
 {{controller.groups}}
 <div ng-repeat="item in controller.groups">
-  <a ui-sref="groupsShow({id: item.id})"><img src="{{ item.image }}" alt="">Show</a>
-  <p>{{ item.title }}</p>
+  <a ui-sref="groupsShow({id: item._id})">Show</a>
+<p>{{ item.title }}</p>
   <p>{{ item.image }}</p>
 </div>
