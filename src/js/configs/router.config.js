@@ -35,10 +35,22 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controller: 'GroupsIndexCtrl',
     controllerAs: 'controller'
   })
+  .state('groupsNew', {
+    url: '/groups/new',
+    templateUrl: 'js/views/groups/groups-new.html',
+    controller: 'GroupsNewCtrl',
+    controllerAs: 'controller'
+  })
   .state('groupsShow', {
     url: '/groups/:id',
     templateUrl: 'js/views/groups/groups-show.html',
     controller: 'GroupsShowCtrl',
+    controllerAs: 'controller'
+  })
+  .state('groupsEdit', {
+    url: '/groups/:id/edit',
+    templateUrl: 'js/views/groups/groups-edit.html',
+    controller: 'GroupsEditCtrl',
     controllerAs: 'controller'
   });
 
