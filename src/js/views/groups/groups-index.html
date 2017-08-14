@@ -1,7 +1,7 @@
 
 <h1>hello</h1>
 
-<div ng-repeat="item in groupsIndex.groups">
-  <a ui-sref="groupssShow({id: group.id})"><img src="{{ item.image }}" alt=""></a>
-  <p>{{ item.name }}</p>
+<div ng-repeat="item in controller.groups">
+  <!-- <a ui-sref="groupssShow({id: group.id})"><img src="{{ item.image }}" alt=""></a> -->
+  <p>Name: {{ item.name }}</p>
 </div>
