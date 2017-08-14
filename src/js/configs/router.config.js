@@ -36,7 +36,7 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     controllerAs: 'controller'
   })
   .state('groupsShow', {
-    url: 'groups/:id',
+    url: '/groups/:id',
     templateUrl: 'js/views/groups/groups-show.html',
     controller: 'GroupsShowCtrl',
     controllerAs: 'controller'
