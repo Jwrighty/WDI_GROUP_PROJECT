@@ -28,6 +28,16 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
     templateUrl: '/js/views/users/index.html',
     controller: 'UsersIndexCtrl',
     controllerAs: 'controller'
+  })
+  .state('groupsIndex', {
+    url: '/groups',
+    templateUrl: 'js/views/groups/groups-index.html',
+    controller: 'GroupsIndexCtrl',
+    controllerAs: 'controller'
+  })
+  .state('groupsShow', {
+    url: 'groups/:id',
+    templateUrl: 'js/views/groups'
   });
 
   $urlRouterProvider.otherwise('/');
