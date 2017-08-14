@@ -10,11 +10,33 @@ User.collection.drop();
 Group.collection.drop();
 
 User
-.create([{
-  username:
-  firstName:
-  lastName:
-  image:
-  email:
-  password: 
-}])
+  .create([{
+    username: 'bear',
+    firstName: 'bear',
+    lastName: 'bear',
+    image: 'bear',
+    email: 'bear@bear.com',
+    password: 'password',
+    passwordConfirmation: 'password'
+  }])
+  .then((users) => {
+    console.log(`${users.length} users created!`);
+
+    return Group
+    .create([{
+      title: 'bear party',
+      image: 'bear',
+      dates: '191919',
+      createdBy: users[0]._id
+    }]);
+
+  })
+.then((groups)=>{
+  console.log(`${groups.length} groups created!`);
+})
+.catch((err) => {
+  console.log(err);
+})
+.finally(() => {
+  mongoose.connection.close();
+});
