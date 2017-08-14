@@ -1,6 +1,7 @@
-<h1>Add a Group</h1>
 
-<form ng-submit="controller.create()">
+<form ng-submit="controller.create()" class="pure-form pure-form-stacked">
+  <fieldset>
+    <legend>Add a Group</legend>
   <label for="title">Title</label>
   <input type="text" name="title" id="title" ng-model="controller.group.title">
 
@@ -13,4 +14,5 @@
   <button role="button" ui-sref="groupsIndex">Cancel</button>
 
   <button type="submit" class="pure-button pure-button-primary" >Submit</button>
+</fieldset>
 </form>
