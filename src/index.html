@@ -15,7 +15,7 @@
     <div class="pure-menu pure-menu-horizontal">
       <a ui-sref="home" class="pure-menu-heading pure-menu-link">Schmoogle</a>
       <ul class="pure-menu-list">
-        <li><p class="">Welcome, {{ MainCtrl.user.username }}</p></li>
+        <li ng-show="MainCtrl.user"><p class="">Welcome, {{ MainCtrl.user.username }}</p></li>
         <li class="pure-menu-item" ng-hide="MainCtrl.user"><a ui-sref="register" class="pure-menu-link">Register</a></li>
         <li class="pure-menu-item" ng-hide="MainCtrl.user"><a ui-sref="login" class="pure-menu-link">Login</a></li>
         <li class="pure-menu-item" ng-show="MainCtrl.user"><a ng-click="MainCtrl.logout()" class="pure-menu-link">Logout</a></li>
