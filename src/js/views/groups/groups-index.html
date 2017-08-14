@@ -1,11 +1,7 @@
-<div ng-repeat="beer in beersIndex.filtered">
-  <div class="col-lg-3 col-md-4 col-sm-6">
-    <div class="card">
-      <a ui-sref="beersShow({id: beer.id})"><img src="{{ beer.image_url }}" class="img-responsive center-block"></a>
-      <a href="#"><h3>{{ beer.name }}</h3></a>
-      <h6>ABV {{ beer.abv }}%</h6>
-    </div>
-  </div>
-</div>
 
-<button ng-click="beersIndex.showMore()" type="button" name="button">Load More</button>
+<h1>hello</h1>
+
+<div ng-repeat="item in groupsIndex.groups">
+  <a ui-sref="groupssShow({id: group.id})"><img src="{{ item.image }}" alt=""></a>
+  <p>{{ item.name }}</p>
+</div>

@@ -37,7 +37,9 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider){
   })
   .state('groupsShow', {
     url: 'groups/:id',
-    templateUrl: 'js/views/groups'
+    templateUrl: 'js/views/groups/groups-show.html',
+    controller: 'GroupsShowCtrl',
+    controllerAs: 'controller'
   });
 
   $urlRouterProvider.otherwise('/');
