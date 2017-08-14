@@ -17,7 +17,7 @@ const mongoose = require('mongoose');
 const groupSchema = new mongoose.Schema({
   title: { type: String, required: true, unique: true },
   image: { type: String, required: true },
-  // dates: {type: Date, required: true},
+  dates: {type: Number, required: true},
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'}
   //how do we create members array when they join 'do'
   // members: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
