@@ -13,7 +13,7 @@ const routes = require('./config/routes');
 
 const dest    = `${__dirname}/public`;
 
-mongoose.connect(config.db);
+mongoose.connect(config.db[process.env.NODE_ENV]);
 mongoose.Promise = bluebird;
 
 if (app.get('env') !== 'production') app.use(cors());
@@ -41,3 +41,5 @@ app.use('/api', routes);
 app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));
 
 app.listen(config.port, () => console.log(`Express has started on port: ${config.port}`));
+
+module.exports = app;
