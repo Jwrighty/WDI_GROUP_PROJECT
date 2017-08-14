@@ -4,8 +4,8 @@ const router = express.Router();
 const authentications = require('../controllers/authentications');
 const users = require('../controllers/users');
 const groups = require('../controllers/groups');
-const comments  = require('../controllers/comments');
-const destinations = ('../controllers/destinations');
+// const comments  = require('../controllers/comments');
+// const destinations = ('../controllers/destinations');
 
 
 router.route('/register')
@@ -26,16 +26,16 @@ router.route('/groups')
 
 router.route('/groups/:id')
   .get(groups.show)
-  .post(comments.create)
+  // .post(comments.create)
   .put(groups.update)
   .delete(groups.delete);
 
 
-router.route('/groups/:groupId/comments/:commentId')
-  .delete(comments.delete);
-
-router.route('/groups/:groupId/destinations/:destinationId')
-  .delete(destinations.delete);
+// router.route('/groups/:groupId/comments/:commentId')
+//   .delete(comments.delete);
+//
+// router.route('/groups/:groupId/destinations/:destinationId')
+//   .delete(destinations.delete);
 
 
 module.exports = router;
