@@ -1,18 +1,18 @@
 
 <form ng-submit="controller.create()" class="pure-form pure-form-stacked">
   <fieldset>
-    <legend>Add a Group</legend>
-  <label for="title">Title</label>
-  <input type="text" name="title" id="title" ng-model="controller.group.title">
+    <legend><h1>Add a Group</h1></legend>
+  <!-- <label for="title">Title</label> -->
+  <input class="pure-input-1-3" type="text" name="title" id="title" ng-model="controller.group.title" placeholder="Group Title">
 
-  <label for="image">Image URL</label>
-  <input type="text" name="image" id="image" ng-model="controller.group.image">
+  <!-- <label for="image">Image URL</label> -->
+  <input class="pure-input-1-3" type="text" name="image" id="image" ng-model="controller.group.image" placeholder="Group Image">
 
-  <label for="dates">Date</label>
-  <input type="text" name="dates" id="dates" ng-model="controller.group.dates">
+  <!-- <label for="dates">Date</label> -->
+  <input class="pure-input-1-3"  type="text" name="dates" id="dates" ng-model="controller.group.dates" placeholder="Date of Do">
 
-  <button role="button" ui-sref="groupsIndex">Cancel</button>
+  <button class="pure-button" ui-sref="groupsIndex">Cancel</button>
 
-  <button type="submit" class="pure-button pure-button-primary" >Submit</button>
+  <button type="submit" class="pure-button pure-button-primary">Save</button>
 </fieldset>
 </form>

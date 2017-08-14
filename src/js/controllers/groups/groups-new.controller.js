@@ -11,6 +11,11 @@ function GroupsNewCtrl(Group, $state){
     Group
     .save(vm.group)
     .$promise
-    .then(()=> $state.go('groupsIndex'));
+    .then(()=> {
+      // CurrentUserService.getUser();
+      $state.go('groupsIndex');
+    });
+
+
   }
 }
