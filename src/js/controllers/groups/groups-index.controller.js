@@ -15,10 +15,5 @@ function GroupsIndexCtrl(Group){
 
   }
 
-  // function groupsDelete(group){
-  //   Group
-  //   .delete({ id: group.id })
-  //   .$promise
-  //   .then(groupsIndex);
-  // }
+
 }
