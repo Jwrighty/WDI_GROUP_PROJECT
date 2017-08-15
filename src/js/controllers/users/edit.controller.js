@@ -15,4 +15,5 @@ function UsersEditCtrl(User, $stateParams, $state) {
     .$promise
     .then(() => $state.go('usersShow', $stateParams));
   }
+  console.log($stateParams);
 }
