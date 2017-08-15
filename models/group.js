@@ -19,9 +19,9 @@ const groupSchema = new mongoose.Schema({
   image: { type: String, required: true },
   dates: {type: Number, required: true},
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
-  description: {type: String}
+  description: {type: String},
   //how do we create members array when they join 'do'
-  // members: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
+  members: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
   // destinations: [destinationsSchema],
   // comments: [commentSchema],
   //how to populate this automatically

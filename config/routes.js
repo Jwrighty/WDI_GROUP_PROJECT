@@ -24,12 +24,15 @@ router.route('/groups')
   .get(groups.index)
   .post(groups.create);
 
+
 router.route('/groups/:id')
   .get(groups.show)
+  // .post(groups.create)
   // .post(comments.create)
   // .put or .post (groups.create or groups.update)
   .put(groups.update)
   .delete(groups.delete);
+
 
 
 // router.route('/groups/:groupId/comments/:commentId')
