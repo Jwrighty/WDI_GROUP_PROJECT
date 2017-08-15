@@ -11,7 +11,8 @@ function Group(API, $resource) {
     {
       'update': { method: 'PUT' },
       'attending': { method: 'GET', url: `${API}/groups/:id/attending` },
-      'removeattending': { method: 'GET', url: `${API}/groups/:id/removeattending` }
+      'removeattending': { method: 'GET', url: `${API}/groups/:id/removeattending` },
+      'destination': { method: 'GET', url: `${API}/groups/:id/destinations`}
     }
     );
 }
