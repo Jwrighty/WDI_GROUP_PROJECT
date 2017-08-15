@@ -1,17 +1,25 @@
 <div class="pure-g">
   <div class="pure-u">
     <h1>{{controller.group.title}}</h1>
-    <p>{{ controller.group.createdBy.username }}</p>
-    {{controller.groups}}
-    <button ng-click="controller.members()"> Attend</button>
-    <button ng-click="controller.notAttending()">leave group</button>
-
-    <p> {{ controller.group.members }}</p>
-    <p>{{controller.group.info}}</p>
+    <p>{{ controller.group.createdBy.username }} made this event</p>
+    <img src="{{controller.group.image}}" alt="">
+      <button ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit Group</button>
   </div>
 </div>
 
-<a ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit</a>
+<div class="">
+  <h3>Who's Attending?</h3>
+  <p> {{ controller.group.members }}</p>
+  <button ng-click="controller.members()"> Attend</button>
+  <button ng-click="controller.notAttending()">Leave</button>
+</div>
+<br>
 <div>
   <google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
 </div>
+
+<h3>Add a Destination</h3>
+<form >
+  <input type="text" name="destination" id="destination" placeholder="destination" ng-model="controller.group.destination">
+  <button ng-click="controller.addDestination()" type="button" name="button">Add</button>
+</form>

@@ -9,6 +9,7 @@ function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
 
   vm.members          = userAttending;
   vm.notAttending     = notAttending;
+  vm.destination      = destination;
   vm.user             = CurrentUserService.currentUser;
   Group
     .get({ id: $stateParams.id})
@@ -42,5 +43,14 @@ function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
       });
       vm.group.members.splice(vm.group.members.indexOf(selectedUser), 1);
     });
+  }
+
+  function destination(){
+    Group
+      .destination({ id: vm.group._id })
+      .$promise
+      .then(() =>{
+        vm.group.destination.push(vm.destination);
+      });
   }
 }
