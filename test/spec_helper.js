@@ -9,6 +9,7 @@ global.expect = chai.expect;
 
 // Require supertest to 'mock' requests to our API
 const supertest = require('supertest');
+
 // Require our main index.js file where our express app is
 const app       = require('../index');
 // Setup a global variable with supertest to make requests
