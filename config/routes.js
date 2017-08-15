@@ -27,6 +27,7 @@ router.route('/groups')
 router.route('/groups/:id')
   .get(groups.show)
   // .post(comments.create)
+  // .put or .post (groups.create or groups.update)
   .put(groups.update)
   .delete(groups.delete);
 

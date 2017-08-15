@@ -18,7 +18,7 @@ function groupCreateRoute(req, res){
 function groupShowRoute(req, res){
   Group
     .findById(req.params.id)
-    .populate('createdBy')
+    .populate('createdBy', 'members')
     .exec()
     .then(group => {
       if(!group) return res.status(404).json({ message: 'no group found'});
