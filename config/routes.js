@@ -33,7 +33,7 @@ router.route('/groups/:id')
   .delete(groups.delete);
 
 router.route('/groups/:id/attending')
-  .post(groups.attending);
+  .get(groups.attending);
 
 
 

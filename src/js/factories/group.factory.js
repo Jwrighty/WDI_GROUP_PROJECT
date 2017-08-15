@@ -10,7 +10,7 @@ function Group(API, $resource) {
     { id: '@_id' },
     {
       'update': { method: 'PUT' },
-      'attending': { method: 'POST', url: `${API}/groups/:id/attending` }
+      'attending': { method: 'GET', url: `${API}/groups/:id/attending` }
     }
     );
 }

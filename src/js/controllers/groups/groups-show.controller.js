@@ -15,10 +15,16 @@ function GroupsShowCtrl(Group, $stateParams, CurrentUserService, $http, API) {
   vm.group = Group.get({ id: $stateParams.id});
 
   function userAttending(){
-    $http
-      .post(`${API}/groups/${vm.group._id}/attending`)
+    Group
+      .attending({ id: vm.group._id })
+      .$promise
       .then(() => {
         vm.group.members.push(vm.user);
       });
+    // $http
+    //   .post(`${API}/groups/${vm.group._id}/attending`)
+    //   .then(() => {
+    //     vm.group.members.push(vm.user);
+    //   });
   }
 }
