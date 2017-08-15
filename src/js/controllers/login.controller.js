@@ -13,7 +13,7 @@ function LoginCtrl(User, CurrentUserService, $state) {
       console.log(data);
 
       CurrentUserService.getUser();
-      $state.go('usersIndex');
+      $state.go('groupsIndex');
       // change destination
 
     }, err => {

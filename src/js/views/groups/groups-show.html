@@ -1,6 +1,7 @@
 <div class="pure-g">
 <div class="pure-u">
   <h1>{{controller.group.title}}</h1>
+  <p>{{ controller.group.createdBy.username }}</p>
   {{controller.groups}}
   <button ng-click="controller.members()"> Attending</button>
 
@@ -10,3 +11,5 @@
 <p>{{controller.group.info}}</p>
 </div>
 </div>
+
+<a ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit</a>

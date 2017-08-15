@@ -13,7 +13,7 @@ function RegisterCtrl(User, CurrentUserService, $state){
     .then(data => {
       console.log(data);
       CurrentUserService.getUser();
-      $state.go('usersIndex');
+      $state.go('groupsIndex');
       // change destination
 
     }, err => {
