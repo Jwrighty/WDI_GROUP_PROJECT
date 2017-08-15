@@ -38,7 +38,6 @@ function groupUpdateRoute(req, res){
       for(const field in req.body ){
         group[field] = req.body[field];
       }
-
       return group.save();
     })
     .then(group => res.status(200).json(group))
@@ -57,6 +56,8 @@ function groupDeleteRoute(req, res){
     .then(()=> res.status(204).end())
     .catch(err => res.status(500).json(err));
 }
+
+
 
 module.exports = {
   index: groupIndexRoute,
