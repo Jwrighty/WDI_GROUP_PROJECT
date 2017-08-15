@@ -2,12 +2,13 @@ angular
 .module('project3')
 .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['Group', '$stateParams', 'CurrentUserService', '$http', 'API'];
-function GroupsShowCtrl(Group, $stateParams, CurrentUserService, $http, API) {
+GroupsShowCtrl.$inject = ['Group', '$stateParams', 'CurrentUserService'];
+function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
   const vm = this;
   vm.group = {};
 
   vm.members = userAttending;
+  // vm.notAttending = notAttending;
   vm.user = CurrentUserService.currentUser;
 
   vm.memberArray = [];
@@ -21,10 +22,14 @@ function GroupsShowCtrl(Group, $stateParams, CurrentUserService, $http, API) {
       .then(() => {
         vm.group.members.push(vm.user);
       });
-    // $http
-    //   .post(`${API}/groups/${vm.group._id}/attending`)
-    //   .then(() => {
-    //     vm.group.members.push(vm.user);
-    //   });
   }
+
+//   function notAttending() {
+//     Group
+//       .attending({ id: vm.group._id })
+//       .$promise
+//       .then(() => {
+//         vm.group.members.splice(vm.user);
+//       });
+//   }
 }

@@ -74,6 +74,17 @@ function groupsAttending(req, res){
   });
 }
 
+// function removeAttending(req, res) {
+  // Group
+  // .findById(req.params.id)
+  // .exec()
+  // .then(group => {
+  //   group.members.splice(req.user.id);
+  //   group.save();
+  //   res.sendStatus(201).json(group);
+  // });
+// }
+
 
 
 module.exports = {
@@ -83,4 +94,5 @@ module.exports = {
   update: groupUpdateRoute,
   delete: groupDeleteRoute,
   attending: groupsAttending
+  // notAttending: removeAttending
 };
