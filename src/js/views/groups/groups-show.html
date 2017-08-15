@@ -1,6 +1,12 @@
 <div class="pure-g">
 <div class="pure-u">
   <h1>{{controller.group.title}}</h1>
+  {{controller.groups}}
+<form ng-submit="controller.members()" >
+    <button type="submit" name="button"> Attending</button>
+</form>
+
+
 <p>{{controller.group.info}}</p>
 </div>
 </div>
