@@ -7,29 +7,40 @@ function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
   const vm = this;
   vm.group = {};
 
-  vm.members = userAttending;
-  // vm.notAttending = notAttending;
-  vm.user = CurrentUserService.currentUser;
+  vm.members          = userAttending;
+  vm.notAttending     = notAttending;
+  vm.user             = CurrentUserService.currentUser;
+  Group
+    .get({ id: $stateParams.id})
+    .$promise
+    .then(data => {
+      vm.group = data;
 
-  vm.memberArray = [];
-  // vm.members = userAttending;
-  vm.group = Group.get({ id: $stateParams.id});
+      // vm.group.members.indexOf(vm.user._id) === -1 ? vm.attending = true : vm.attending = false;
+    });
 
   function userAttending(){
+    vm.attending = !vm.attending;
     Group
-      .attending({ id: vm.group._id })
-      .$promise
-      .then(() => {
-        vm.group.members.push(vm.user);
-      });
+    .attending({ id: vm.group._id })
+    .$promise
+    .then(() => {
+      vm.group.members.push(vm.user);
+    });
   }
 
-//   function notAttending() {
-//     Group
-//       .attending({ id: vm.group._id })
-//       .$promise
-//       .then(() => {
-//         vm.group.members.splice(vm.user);
-//       });
-//   }
+  function notAttending() {
+    vm.attending = !vm.attending;
+    Group
+    .removeattending({ id: vm.group._id })
+    .$promise
+    .then(() => {
+      const selectedUser = vm.group.members.find(obj => {
+        if (obj._id === vm.user._id ) {
+          return obj;
+        }
+      });
+      vm.group.members.splice(vm.group.members.indexOf(selectedUser), 1);
+    });
+  }
 }

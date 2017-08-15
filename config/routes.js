@@ -35,6 +35,10 @@ router.route('/groups/:id')
 router.route('/groups/:id/attending')
   .get(groups.attending);
 
+router.route('/groups/:id/removeattending')
+  .get(groups.notAttending);
+
+
 
 
 

@@ -5,14 +5,9 @@ const mongoose = require('mongoose');
 //   user: { type: mongoose.Schema.ObjectId, ref: 'User'}
 // });
 //
-// const destinationsSchema = new mongoose.Schema({
-//   destinationName: String,
-//   destinationType: String,
-//   destinationInfo: String,
-//   destinationLink: String,
-//   //how is lat/lon done for googleplaces
-//   destinationLatLong: {lat: Number , long: Number}
-// });
+const destinationsSchema = new mongoose.Schema({
+  name: String
+});
 
 const groupSchema = new mongoose.Schema({
   title: { type: String, required: true, unique: true },
@@ -21,8 +16,8 @@ const groupSchema = new mongoose.Schema({
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
   description: {type: String},
   //how do we create members array when they join 'do'
-  members: [{type: mongoose.Schema.ObjectId, ref: 'User'}]
-  // destinations: [destinationsSchema],
+  members: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
+  destinations: [destinationsSchema],
   // comments: [commentSchema],
   //how to populate this automatically
   // stagOrHen: {type: Boolean, required: true}
