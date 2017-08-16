@@ -1,41 +1,62 @@
 <div class="pure-g">
-  <div class="pure-u">
+  <div class="pure-u-1-2">
     <h1>{{controller.group.title}}</h1>
-    <p>{{ controller.group.createdBy.username }} made this event</p>
+
     <img src="{{controller.group.image}}" alt="">
-      <button ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit Group</button>
+
+    <p><strong>Created by</strong> {{ controller.group.createdBy.username }}</p>
+    {{controller.groups}}
+    <div class="">
+      <h3>Attending</h3>
+      <div class="pure-g" ng-repeat="item in controller.group.members">
+        <ul class="unstyled-list">
+          <li class="pure-lg-1-8">
+            <img class="avatar pure-img" src="{{ item.image }}" alt="">
+            <p>{{ item.username}}</p></li>
+          </ul>
+        </div>
+        <button ng-click="controller.members()"> Attend</button>
+        <button ng-click="controller.notAttending()">leave group</button>
+        <a ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit</a>
+      </div>
+    </div>
   </div>
-</div>
+      <div class="pure-u-1-1 google-map">
+        <google-map></google-map>
 
-<div class="">
-  <h3>Who's Attending?</h3>
-  <p> {{ controller.group.members }}</p>
-  <button ng-click="controller.members()"> Attend</button>
-  <button ng-click="controller.notAttending()">Leave</button>
-</div>
-<br>
-<div>
-  <google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
-</div>
+      </div>
 
-{{ controller.destination }}
 
-<!-- ng-show="main.user._id === controller.group.createdBy._id" -->
-<div class="destinations">
-  <h3>Add a Destination</h3>
-  <form ng-submit="controller.addDestination()">
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name" placeholder="name" ng-model="controller.destination.name">
-    <label for="description">Description:</label>
-    <input type="text" name="description" id="description" placeholder="description" ng-model="controller.destination.description">
-    <button type="button" name="button">Add</button>
-  </form>
-</div>
 
-<h3>Current Destinations</h3>
-<ul>
-  <li ng-repeat="destination in controller.group.destinations">
-    {{ destination.name }}
-    <button ng-click="controller.removeDestination(destination)">Delete</button>
-  </li>
-</ul>
+
+
+
+
+
+      <div class="pure-g">
+
+        <!-- ng-show="main.user._id === controller.group.createdBy._id" -->
+        <div class="destinations pure-u">
+          <h3>Add a Destination</h3>
+          <form ng-submit="controller.addDestination()">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="name" ng-model="controller.destination.name">
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" placeholder="description" ng-model="controller.destination.description">
+            <button type="button" name="button">Add</button>
+          </form>
+        </div>
+
+        <div class="pure-u">
+          <h3>Current Destinations</h3>
+          <ul>
+            <li ng-repeat="destination in controller.group.destinations">
+              {{ destination.name }}
+              <button ng-click="controller.removeDestination(destination)">Delete</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- <p>{{controller.group.members}}</p>
+      <p>{{controller.group.members.username}}</p> -->
