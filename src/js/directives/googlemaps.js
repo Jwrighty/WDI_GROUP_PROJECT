@@ -1,9 +1,11 @@
 angular
-  .module('project3')
-  .directive('googleMap', googleMap);
+.module('project3')
+.directive('googleMap', googleMap);
 
 googleMap.$inject = ['$window'];
 function googleMap($window) {
+  const markerData =  [[52.238, -0.888],[52.242, -0.889]];
+  console.log(markerData[0][0]);
 
 
   const directive = {
@@ -15,17 +17,22 @@ function googleMap($window) {
       marker: '='
     },
     link($scope, element) {
-      console.log(element[0]);
+      // console.log(element[0]);
       const map = new $window.google.maps.Map(element[0], {
         zoom: 14,
-        center: $scope.center
+        center: {lat: markerData[0][0], lng: markerData[0][1] }
       });
 
-      new $window.google.maps.Marker({
-        position: $scope.marker,
-        map: map,
-        animation: $window.google.maps.Animation.DROP
-      });
+      function addMarkersToMap () {
+        for (var i = 0; i < markerData.length; i++) {
+          const marker = new $window.google.maps.Marker({
+            map: map,
+            position: {lat: markerData[i][0], lng: markerData[i][1]},
+            animation: google.maps.Animation.BOUNCE
+          });
+        }
+      }
+      addMarkersToMap();
     }
   };
   return directive;
