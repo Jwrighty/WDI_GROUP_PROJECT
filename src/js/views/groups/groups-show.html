@@ -18,8 +18,24 @@
   <google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
 </div>
 
-<h3>Add a Destination</h3>
-<form >
-  <input type="text" name="destination" id="destination" placeholder="destination" ng-model="controller.group.destination">
-  <button ng-click="controller.destination()" type="button" name="button">Add</button>
-</form>
+{{ controller.destination }}
+
+<!-- ng-show="main.user._id === controller.group.createdBy._id" -->
+<div class="destinations">
+  <h3>Add a Destination</h3>
+  <form ng-submit="controller.addDestination()">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" placeholder="name" ng-model="controller.destination.name">
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" placeholder="description" ng-model="controller.destination.description">
+    <button type="button" name="button">Add</button>
+  </form>
+</div>
+
+<h3>Current Destinations</h3>
+<ul>
+  <li ng-repeat="destination in controller.group.destinations">
+    {{ destination.name }}
+    <button ng-click="controller.removeDestination(destination)">Delete</button>
+  </li>
+</ul>
