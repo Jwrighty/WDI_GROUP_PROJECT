@@ -5,10 +5,12 @@ angular
 GroupsShowCtrl.$inject = ['Group', '$stateParams', 'CurrentUserService'];
 function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
   const vm = this;
-  vm.group = {};
 
+  vm.destination      = {};
   vm.members          = userAttending;
   vm.notAttending     = notAttending;
+  vm.addDestination   = addDestination;
+  vm.removeDestination = removeDestination;
   vm.user             = CurrentUserService.currentUser;
   Group
     .get({ id: $stateParams.id})
@@ -42,5 +44,26 @@ function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
       });
       vm.group.members.splice(vm.group.members.indexOf(selectedUser), 1);
     });
+  }
+
+  function addDestination(){
+    Group
+      .addDestination({ id: vm.group._id }, vm.destination)
+      .$promise
+      .then(group =>{
+        vm.group.destinations = group.destinations;
+        vm.destination = {};
+      });
+  }
+
+  function removeDestination(destination){
+    console.log(destination._id);
+
+    Group
+      .removeDestination({ groupId: vm.group._id, destinationId: destination._id} )
+      .$promise
+      .then(() =>{
+        vm.group.destinations.splice(vm.group.destinations.indexOf(destination), 1);
+      });
   }
 }

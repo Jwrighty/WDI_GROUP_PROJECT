@@ -6,7 +6,10 @@ const mongoose = require('mongoose');
 // });
 //
 const destinationsSchema = new mongoose.Schema({
-  name: String
+  name: String,
+  description: String,
+  latlong: {lat: Number , long: Number }
+
 });
 
 const groupSchema = new mongoose.Schema({
@@ -15,9 +18,8 @@ const groupSchema = new mongoose.Schema({
   dates: {type: Date, required: true},
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
   description: {type: String},
-  //how do we create members array when they join 'do'
   members: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
-  destinations: [destinationsSchema],
+  destinations: [destinationsSchema]
   // comments: [commentSchema],
   //how to populate this automatically
   // stagOrHen: {type: Boolean, required: true}

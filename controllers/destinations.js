@@ -5,8 +5,6 @@ function destinationsCreate(req, res) {
   .findById(req.params.id)
   .exec()
   .then(group => {
-    req.body.user = req.user._id;
-
     group.destinations.push(req.body);
     group.save();
 
@@ -22,7 +20,7 @@ function destinationsDelete(req, res) {
       const destination = group.destinations.id(req.params.destinationId);
       destination.remove();
       group.save();
-      res.status(200).json(group);
+      res.sendStatus(200);
     });
 }
 
