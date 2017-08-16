@@ -19,8 +19,10 @@
       </div>
     </div>
   </div>
+
   <div class="pure-u-1-1 google-map">
     <google-map id="map"></google-map>
+  </div>
 
     <div class="pac-card" id="pac-card" >
       <div>
@@ -70,7 +72,30 @@
       <span id="place-name"  class="title"></span><br>
       <span id="place-address"></span>
     </div> -->
-
-
   </div>
-</div>
+
+  <div class="pure-g">
+    <div class="pure-u">
+
+      <form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
+        <fieldset>
+          <legend><h3>Bantz</h3></legend>
+          <!--
+          <textarea name="comment" rows="8" cols="80" ng-model="controller.comment.body"></textarea> -->
+          <input type="text" ng-model="controller.comments.body" name="body" id="body">
+          <button type="submit" name="button">Comment</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="pure-u">
+      <div ng-repeat="comment in controller.group.comments">
+        <ul>
+          <li >
+            {{ comment.name }}
+            <!-- <button ng-click="controller.deleteComment(comment)">Delete</button> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

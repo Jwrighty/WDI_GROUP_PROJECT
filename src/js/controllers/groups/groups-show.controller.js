@@ -12,6 +12,8 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
   vm.notAttending     = notAttending;
   vm.addDestination   = addDestination;
   vm.removeDestination = removeDestination;
+  vm.addComment       = addComment;
+  // vm.deleteComment    = deleteComment;
   vm.user             = CurrentUserService.currentUser;
 
   Group
@@ -58,6 +60,7 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
   }
 
   function addDestination(){
+
     Group
     .addDestination({ id: vm.group._id }, vm.destination)
     .$promise
@@ -78,4 +81,29 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
       vm.group.destinations.splice(vm.group.destinations.indexOf(destination), 1);
     });
   }
+
+  function addComment(){
+    console.log(vm.group._id);
+    // Group
+    //   .addComment({ groupId: vm.group._id }, vm.comments)
+    //   .$promise
+    //   .then(group =>  {
+    //     vm.group.comments = group.comments;
+    //     vm.comments = {};
+    //   });
+    $http.post(`${API}/groups/${vm.group._id}/comments`, vm.comments)
+    .then(group =>  {
+      vm.group.comments = group.comments;
+      vm.comments = {};
+    });
+  }
+
+  // function deleteComment(comment) {
+  //   Group
+  //     .deleteComment({ groupId: vm.group._id, commentId: comment._id} )
+  //     .$promise
+  //     .then(() =>{
+  //       vm.group.comments.splice(vm.group.comments.indexOf(comment), 1);
+  //     });
+  // }
 }
