@@ -1,19 +1,21 @@
-const express    = require('express');
-const mongoose   = require('mongoose');
-const bluebird   = require('bluebird');
-const morgan     = require('morgan');
-const bodyParser = require('body-parser');
-const cors       = require('cors');
-const expressJWT = require('express-jwt');
+const express     = require('express');
+const mongoose    = require('mongoose');
+const bluebird    = require('bluebird');
+const morgan      = require('morgan');
+const bodyParser  = require('body-parser');
+const app         = express();
+const environment = app.get('env');
+const cors        = require('cors');
+const expressJWT  = require('express-jwt');
 
-const app        = express();
+
 
 const config = require('./config/config');
 const routes = require('./config/routes');
 
 const dest    = `${__dirname}/public`;
 
-mongoose.connect(config.db[process.env.NODE_ENV]);
+mongoose.connect(config.db[environment]);
 mongoose.Promise = bluebird;
 
 if (app.get('env') !== 'production') app.use(cors());
