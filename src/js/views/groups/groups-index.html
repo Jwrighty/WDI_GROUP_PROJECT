@@ -1,8 +1,10 @@
 
 <div ng-repeat="item in controller.groups">
+
   <a ui-sref="groupsShow({id: item._id})">
     <h1>{{ item.title }}</h1>
-    <img src="{{ item.image }}" alt="" class="pure-img">
+    <img src="{{ item.image }}">
     <h3>{{ item.createdBy.username }}</h3>
   </a>
+
 </div>
