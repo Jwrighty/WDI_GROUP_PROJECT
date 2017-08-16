@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-// const commentSchema = new mongoose.Schema({
-//   body: String,
-//   user: { type: mongoose.Schema.ObjectId, ref: 'User'}
-// });
-//
+const commentSchema = new mongoose.Schema({
+  body: String
+  // user: { type: mongoose.Schema.ObjectId, ref: 'User'}
+});
+
 const destinationsSchema = new mongoose.Schema({
   name: String,
   description: String,
@@ -19,8 +19,8 @@ const groupSchema = new mongoose.Schema({
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'},
   description: {type: String},
   members: [{type: mongoose.Schema.ObjectId, ref: 'User'}],
-  destinations: [destinationsSchema]
-  // comments: [commentSchema],
+  destinations: [destinationsSchema],
+  comments: [commentSchema]
   //how to populate this automatically
   // stagOrHen: {type: Boolean, required: true}
 

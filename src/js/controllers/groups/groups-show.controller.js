@@ -2,15 +2,18 @@ angular
 .module('project3')
 .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['Group', '$stateParams', 'CurrentUserService'];
-function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
+GroupsShowCtrl.$inject = ['Group', '$stateParams', 'CurrentUserService', 'API', '$http'];
+function GroupsShowCtrl(Group, $stateParams, CurrentUserService, API, $http) {
   const vm = this;
 
   vm.destination      = {};
+  vm.comments         = {};
   vm.members          = userAttending;
   vm.notAttending     = notAttending;
   vm.addDestination   = addDestination;
   vm.removeDestination = removeDestination;
+  vm.addComment       = addComment;
+  // vm.deleteComment    = deleteComment;
   vm.user             = CurrentUserService.currentUser;
   Group
     .get({ id: $stateParams.id})
@@ -66,4 +69,29 @@ function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
         vm.group.destinations.splice(vm.group.destinations.indexOf(destination), 1);
       });
   }
+
+  function addComment(){
+    console.log(vm.group._id);
+    // Group
+    //   .addComment({ groupId: vm.group._id }, vm.comments)
+    //   .$promise
+    //   .then(group =>  {
+    //     vm.group.comments = group.comments;
+    //     vm.comments = {};
+    //   });
+    $http.post(`${API}/groups/${vm.group._id}/comments`, vm.comments)
+    .then(group =>  {
+      vm.group.comments = group.comments;
+      vm.comments = {};
+    });
+  }
+
+  // function deleteComment(comment) {
+  //   Group
+  //     .deleteComment({ groupId: vm.group._id, commentId: comment._id} )
+  //     .$promise
+  //     .then(() =>{
+  //       vm.group.comments.splice(vm.group.comments.indexOf(comment), 1);
+  //     });
+  // }
 }

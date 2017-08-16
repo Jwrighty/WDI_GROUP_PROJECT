@@ -21,42 +21,154 @@
       </div>
     </div>
   </div>
-      <div class="pure-u-1-1 google-map">
-        <google-map></google-map>
+  <div class="pure-u-1-1 google-map">
+    <google-map></google-map>
 
+  </div>
+
+
+
+
+
+
+
+
+  <div class="pure-g">
+
+    <!-- ng-show="main.user._id === controller.group.createdBy._id" -->
+    <div class="destinations pure-u">
+      <h3>Add a Destination</h3>
+      <form ng-submit="controller.addDestination()">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="name" ng-model="controller.destination.name">
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" placeholder="description" ng-model="controller.destination.description">
+        <button type="button" name="button">Add</button>
+      </form>
+    </div>
+
+    <div class="pure-u">
+      <h3>Current Destinations</h3>
+      <ul>
+        <li ng-repeat="destination in controller.group.destinations">
+          {{ destination.name }}
+          <button ng-click="controller.removeDestination(destination)">Delete</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <p>{{controller.group.members}}</p>
+  <p>{{controller.group.members.username}}</p> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="pure-g">
+    <div class="pure-u">
+
+      <form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
+        <fieldset>
+          <legend><h3>Bantz</h3></legend>
+          <!--
+          <textarea name="comment" rows="8" cols="80" ng-model="controller.comment.body"></textarea> -->
+          <input type="text" ng-model="controller.comments.body" name="body" id="body">
+          <button type="submit" name="button">Comment</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div class="pure-u">
+      <div ng-repeat="comment in controller.group.comments">
+        <ul>
+          <li >
+            {{ comment.name }}
+            <!-- <button ng-click="controller.deleteComment(comment)">Delete</button> -->
+          </li>
+        </ul>
       </div>
-
-
-
-
-
-
-
-
-      <div class="pure-g">
-
-        <!-- ng-show="main.user._id === controller.group.createdBy._id" -->
-        <div class="destinations pure-u">
-          <h3>Add a Destination</h3>
-          <form ng-submit="controller.addDestination()">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" placeholder="name" ng-model="controller.destination.name">
-            <label for="description">Description:</label>
-            <input type="text" name="description" id="description" placeholder="description" ng-model="controller.destination.description">
-            <button type="button" name="button">Add</button>
-          </form>
-        </div>
-
-        <div class="pure-u">
-          <h3>Current Destinations</h3>
-          <ul>
-            <li ng-repeat="destination in controller.group.destinations">
-              {{ destination.name }}
-              <button ng-click="controller.removeDestination(destination)">Delete</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- <p>{{controller.group.members}}</p>
-      <p>{{controller.group.members.username}}</p> -->
+    </div>
+  </div>

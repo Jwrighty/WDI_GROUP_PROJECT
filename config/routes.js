@@ -5,7 +5,7 @@ const authentications = require('../controllers/authentications');
 const users           = require('../controllers/users');
 const groups          = require('../controllers/groups');
 const destinations    = require('../controllers/destinations');
-// const comments  = require('../controllers/comments');
+const comments  = require('../controllers/comments');
 
 
 // Authentications
@@ -42,11 +42,12 @@ router.route('/groups/:groupId/destinations/:destinationId')
   .delete(destinations.delete);
 
 // Comments
+router.route('/groups/:groupId/comments')
+  .post(comments.create);
 // router.route('/groups/:groupId/comments/:commentId')
 //   .delete(comments.delete);
-//
-// router.route('/groups/:groupId/destinations/:destinationId')
-//   .delete(destinations.delete);
+
+
 
 
 module.exports = router;

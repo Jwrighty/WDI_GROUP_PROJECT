@@ -18,3 +18,30 @@
 .unstyled-list {
   list-style: none;
 }
+
+.header-image {
+  width: 100%;
+  height: 100%;
+}
+
+
+#henHeaderPicture {
+  float: right;
+  object-fit: cover;
+  overflow: hidden;
+
+}
+
+.hen-container {
+  width: 50%;
+  height: 100%;
+
+}
+
+.tagline {
+  position: absolute;
+  top: 200px;
+  left: 28%;
+  color: white;
+  
+}
