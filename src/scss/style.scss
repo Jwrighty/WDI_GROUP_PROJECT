@@ -18,3 +18,63 @@
 .unstyled-list {
   list-style: none;
 }
+
+
+.header-image {
+  width: 100%;
+  height: 100%;
+}
+
+
+#henHeaderPicture {
+  float: right;
+  object-fit: cover;
+  overflow: hidden;
+
+}
+
+.hen-container {
+  width: 50%;
+  height: 100%;
+
+}
+
+.tagline {
+  position: absolute;
+  top: 200px;
+  left: 28%;
+  color: white;
+
+
+.indexGroups{
+  // width: 200px;
+  // height: 200px;
+  // background-color: rgba(255,255,255,0.5);
+  // margin: 50px;
+  // padding: 50px;
+
+  img{
+    width: 300px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+  }
+  h3{
+    position: absolute;
+    color: black;
+    background-color: rgba(255,255,255,0.5);
+    z-index: 10;
+    text-align: center;
+  }
+}
+.pure-g  {
+  div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .l-box {
+    padding: 1em;
+  }
+
+}
