@@ -17,18 +17,45 @@ function googleMap($window) {
       marker: '='
     },
     link($scope, element) {
-      // console.log(element[0]);
+
       const map = new $window.google.maps.Map(element[0], {
         zoom: 14,
         center: {lat: markerData[0][0], lng: markerData[0][1] }
       });
 
+      const card = document.getElementById('pac-card');
+      const input = document.getElementById('pac-input');
+      const types = document.getElementById('type-selector');
+      const strictBounds = document.getElementById('strict-bounds-selector');
+
+      map.controls[$window.google.maps.ControlPosition.TOP_RIGHT].push(card);
+
+      const autocomplete = new $window.google.maps.places.Autocomplete(input);
+
+      autocomplete.bindTo('bounds', map);
+
+      autocomplete.addListener('place_changed', function() {
+        // infowindow.close();
+        // marker.setVisible(false);
+        const place = autocomplete.getPlace();
+        const name = place.name;
+        const lat = place.geometry.location.lat();
+        const lng =  place.geometry.location.lng();
+
+        if (!place.geometry) {
+          // User entered the name of a Place that was not suggested and
+          // pressed the Enter key, or the Place Details request failed.
+          window.alert('No details available for input: ' + place.name + '');
+          return;
+        }
+      });
+
       function addMarkersToMap () {
-        for (var i = 0; i < markerData.length; i++) {
+        for (let i = 0; i < markerData.length; i++) {
           const marker = new $window.google.maps.Marker({
             map: map,
             position: {lat: markerData[i][0], lng: markerData[i][1]},
-            animation: google.maps.Animation.BOUNCE
+            animation: $window.google.maps.Animation.BOUNCE
           });
         }
       }
