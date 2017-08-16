@@ -8,7 +8,8 @@ const commentSchema = new mongoose.Schema({
 const destinationsSchema = new mongoose.Schema({
   name: String,
   description: String,
-  latlong: {lat: Number , long: Number }
+  lat: Number,
+  long: Number
 
 });
 

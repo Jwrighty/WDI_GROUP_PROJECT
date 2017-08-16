@@ -50,6 +50,7 @@ function GroupsShowCtrl(Group, $stateParams, CurrentUserService, API, $http) {
   }
 
   function addDestination(){
+
     Group
       .addDestination({ id: vm.group._id }, vm.destination)
       .$promise
