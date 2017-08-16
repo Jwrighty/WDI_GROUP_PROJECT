@@ -4,12 +4,15 @@ angular
 
 googleMap.$inject = ['$window'];
 function googleMap($window) {
+
+
   const directive = {
     restrict: 'E',
     replace: true,
     template: '<div class="google-map"></div>',
     scope: {
-      center: '='
+      center: '=',
+      marker: '='
     },
     link($scope, element) {
       console.log(element[0]);
@@ -19,7 +22,7 @@ function googleMap($window) {
       });
 
       new $window.google.maps.Marker({
-        position: $scope.center,
+        position: $scope.marker,
         map: map,
         animation: $window.google.maps.Animation.DROP
       });

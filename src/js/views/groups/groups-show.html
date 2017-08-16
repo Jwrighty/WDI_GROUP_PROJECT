@@ -1,17 +1,36 @@
 <div class="pure-g">
-  <div class="pure-u">
+  <div class="pure-u-1-2">
     <h1>{{controller.group.title}}</h1>
-    <p>{{ controller.group.createdBy.username }}</p>
+
+    <p><strong>Created by</strong> {{ controller.group.createdBy.username }}</p>
     {{controller.groups}}
     <button ng-click="controller.members()"> Attend</button>
     <button ng-click="controller.notAttending()">leave group</button>
-
-    <p> {{ controller.group.members }}</p>
-    <p>{{controller.group.info}}</p>
+    <a ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit</a>
   </div>
+
+
+  <div class="pure-u-1-1 google-map">
+    <google-map  class="" center="{ lat: 52.1, lng: -0.085 }" marker=""></google-map>
+  </div>
+
+
+  <!-- <p>{{controller.group.members}}</p>
+  <p>{{controller.group.members.username}}</p> -->
+
+
+  <h3>Attending</h3>
+  <div class="pure-g" ng-repeat="item in controller.group.members">
+    <ul class="unstyled-list">
+      <li class="pure-lg-1-8">
+        <img class="avatar pure-img" src="{{ item.image }}" alt="">
+        <p>{{ item.username}}</p></li>
+      </ul>
+    </div>
 </div>
 
-<a ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit</a>
-<div>
-  <google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
-</div>
+
+
+
+
+  </div>
