@@ -2,24 +2,35 @@ angular
 .module('project3')
 .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['Group', '$stateParams', 'CurrentUserService'];
-function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
+GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService', '$rootScope'];
+function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope) {
   const vm = this;
 
   vm.destination      = {};
+  vm.placeData        = {};
   vm.members          = userAttending;
   vm.notAttending     = notAttending;
   vm.addDestination   = addDestination;
   vm.removeDestination = removeDestination;
   vm.user             = CurrentUserService.currentUser;
-  Group
-    .get({ id: $stateParams.id})
-    .$promise
-    .then(data => {
-      vm.group = data;
 
-      // vm.group.members.indexOf(vm.user._id) === -1 ? vm.attending = true : vm.attending = false;
-    });
+  Group
+  .get({ id: $stateParams.id})
+  .$promise
+  .then(data => {
+    vm.group = data;
+
+    // vm.group.members.indexOf(vm.user._id) === -1 ? vm.attending = true : vm.attending = false;
+  });
+
+  $rootScope.$on('gotPlaceData', (event, args) => {
+    vm.destination.name = args.placeData.name;
+    vm.destination.lat  = args.placeData.lat;
+    vm.destination.long = args.placeData.lng;
+    vm.destination.description = args.placeData.description;
+
+    $scope.$apply();
+  });
 
   function userAttending(){
     vm.attending = !vm.attending;
@@ -48,22 +59,23 @@ function GroupsShowCtrl(Group, $stateParams, CurrentUserService) {
 
   function addDestination(){
     Group
-      .addDestination({ id: vm.group._id }, vm.destination)
-      .$promise
-      .then(group =>{
-        vm.group.destinations = group.destinations;
-        vm.destination = {};
-      });
+    .addDestination({ id: vm.group._id }, vm.destination)
+    .$promise
+    .then(group =>{
+      vm.group.destinations = group.destinations;
+      vm.destination = {};
+      // vm.group.push(group);
+    });
   }
 
   function removeDestination(destination){
     console.log(destination._id);
 
     Group
-      .removeDestination({ groupId: vm.group._id, destinationId: destination._id} )
-      .$promise
-      .then(() =>{
-        vm.group.destinations.splice(vm.group.destinations.indexOf(destination), 1);
-      });
+    .removeDestination({ groupId: vm.group._id, destinationId: destination._id} )
+    .$promise
+    .then(() =>{
+      vm.group.destinations.splice(vm.group.destinations.indexOf(destination), 1);
+    });
   }
 }

@@ -1,7 +1,5 @@
 <div class="pure-g">
   <div class="pure-u-1-2">
-    <h1>{{controller.group.title}}</h1>
-
     <img src="{{controller.group.image}}" alt="">
 
     <p><strong>Created by</strong> {{ controller.group.createdBy.username }}</p>
@@ -24,125 +22,55 @@
   <div class="pure-u-1-1 google-map">
     <google-map id="map"></google-map>
 
-    <div class="pac-card" id="pac-card">
+    <div class="pac-card" id="pac-card" >
       <div>
-        <div id="title">
-          Autocomplete search
+        <div id="title" ng-show="MainCtrl.user._id === controller.group.createdBy._id">
+          Add a Destination
         </div>
 
-      <div id="pac-container">
+      <div id="pac-container" ng-show="MainCtrl.user._id === controller.group.createdBy._id">
         <input id="pac-input" type="text"
         placeholder="Enter a location">
       </div>
     </div>
 
-
-    <div id="infowindow-content">
-      <img src="/" width="16" height="16" id="place-icon">
-      <span id="place-name"  class="title"></span><br>
-      <span id="place-address"></span>
-    </div>
-
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div class="pure-g">
-
-        <!-- ng-show="main.user._id === controller.group.createdBy._id" -->
-        <div class="destinations pure-u">
-          <h3>Add a Destination</h3>
-          <form ng-submit="controller.addDestination()">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" placeholder="name" ng-model="controller.destination.name">
-            <label for="description">Description:</label>
-            <input type="text" name="description" id="description" placeholder="description" ng-model="controller.destination.description">
-
-            <label for="lat">Lat:</label>
-            <input type="text" name="lat" id="lat" placeholder="lat" ng-model="controller.destination.lat">
-
-            <label for="long">Long:</label>
-            <input type="text" name="long" id="long" placeholder="long" ng-model="controller.destination.long">
-
-            <button type="submit" name="button">Add</button>
-          </form>
-        </div>
-
-        <div class="pure-u">
-          <h3>Current Destinations</h3>
-          <ul>
-            <li ng-repeat="destination in controller.group.destinations">
-              {{ destination.name }}
-              {{ destination.description}}
-              {{ destination.lat}}
-              {{ destination.long}}
-              <button ng-click="controller.removeDestination(destination)">Delete</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <div class="pure-g">
-
-    <!-- ng-show="main.user._id === controller.group.createdBy._id" -->
-    <div class="destinations pure-u">
-      <h3>Add a Destination</h3>
+    <div class="destinations">
+      <!-- <h3>Add a Destination</h3> -->
       <form ng-submit="controller.addDestination()">
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" placeholder="name" ng-model="controller.destination.name">
-        <label for="description">Description:</label>
-        <input type="text" name="description" id="description" placeholder="description" ng-model="controller.destination.description">
-        <button type="button" name="button">Add</button>
+        <label for="name"></label>
+        <input type="hidden" name="name" id="name" placeholder="name" value="{{name}}" ng-model="controller.destination.name">
+        <label for="description"></label>
+        <input type="hidden" name="description" id="description" value="{{description}}" placeholder="type" ng-model="controller.destination.description">
+
+        <label for="lat"></label>
+        <input type="hidden" name="lat" id="lat" placeholder="lat"  value="{{lat}}" ng-model="controller.destination.lat">
+
+        <label for="long"></label>
+        <input type="hidden" name="long" id="long" placeholder="long"  value="{{lng}}" ng-model="controller.destination.long">
+
+        <button type="submit" name="button" id="addBtn" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Add Destination</button>
       </form>
     </div>
 
-    <div class="pure-u">
-      <h3>Current Destinations</h3>
-      <ul>
-        <li ng-repeat="destination in controller.group.destinations">
-          {{ destination.name }}
-          <button ng-click="controller.removeDestination(destination)">Delete</button>
-        </li>
-      </ul>
+    <div>
+      <!-- ng-show="main.user._id === controller.group.createdBy._id" -->
+      <div>
+        <h3>Current Destinations</h3>
+        <ul>
+          <li ng-repeat="destination in controller.group.destinations">
+            {{ destination.name }}
+            {{ destination.description}}
+            <button ng-click="controller.removeDestination(destination)" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Delete</button>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+    <!-- <div id="infowindow-content">
+      <img src="/" width="16" height="16" id="place-icon">
+      <span id="place-name"  class="title"></span><br>
+      <span id="place-address"></span>
+    </div> -->
 
-  <!-- <p>{{controller.group.members}}</p>
-  <p>{{controller.group.members.username}}</p> -->
+
+  </div>
+</div>

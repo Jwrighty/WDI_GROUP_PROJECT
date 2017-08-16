@@ -2,10 +2,13 @@ angular
 .module('project3')
 .directive('googleMap', googleMap);
 
-googleMap.$inject = ['$window'];
-function googleMap($window) {
-  const markerData =  [[52.238, -0.888],[52.242, -0.889]];
-  console.log(markerData[0][0]);
+googleMap.$inject = ['$window', '$rootScope', 'Group', '$stateParams'];
+function googleMap($window, $rootScope, Group, $stateParams) {
+  // const markerData =  [[52.238, -0.888],[52.242, -0.889]];
+  const vm = this;
+  // vm.locationData = locationData;
+
+
 
 
   const directive = {
@@ -14,15 +17,18 @@ function googleMap($window) {
     template: '<div class="google-map"></div>',
     scope: {
       center: '=',
-      marker: '='
+      marker: '=',
+      name: '=',
+      lat: '=',
+      lng: '=',
+      description: '='
     },
-    link($scope, element) {
+    link(scope, element) {
 
       const map = new $window.google.maps.Map(element[0], {
-        zoom: 14,
-        center: {lat: markerData[0][0], lng: markerData[0][1] }
+        zoom: 12,
+        center: {lat: 51.5074, lng: -0.0918 }
       });
-
       const card = document.getElementById('pac-card');
       const input = document.getElementById('pac-input');
       const types = document.getElementById('type-selector');
@@ -38,9 +44,17 @@ function googleMap($window) {
         // infowindow.close();
         // marker.setVisible(false);
         const place = autocomplete.getPlace();
-        const name = place.name;
-        const lat = place.geometry.location.lat();
-        const lng =  place.geometry.location.lng();
+        // console.log(place.types);
+        scope.placeData = {
+          name: place.name,
+          lat: place.geometry.location.lat(),
+          lng: place.geometry.location.lng(),
+          description: place.types[0]
+        };
+
+        $rootScope.$broadcast('gotPlaceData', {
+          placeData: scope.placeData
+        });
 
         if (!place.geometry) {
           // User entered the name of a Place that was not suggested and
@@ -50,16 +64,26 @@ function googleMap($window) {
         }
       });
 
-      function addMarkersToMap () {
-        for (let i = 0; i < markerData.length; i++) {
-          const marker = new $window.google.maps.Marker({
-            map: map,
-            position: {lat: markerData[i][0], lng: markerData[i][1]},
-            animation: $window.google.maps.Animation.BOUNCE
-          });
+      Group
+      .get({ id: $stateParams.id})
+      .$promise
+      .then(data => {
+        vm.locationData = data.destinations;
+
+        function addMarkersToMap () {
+          for (let i = 0; i < vm.locationData.length; i++) {
+            const marker = new $window.google.maps.Marker({
+              map: map,
+              position: {lat: vm.locationData[i].lat, lng: vm.locationData[i].long},
+              animation: $window.google.maps.Animation.BOUNCE
+            });
+          }
         }
-      }
-      addMarkersToMap();
+        addMarkersToMap();
+
+        return vm.locationData;
+
+      });
     }
   };
   return directive;
