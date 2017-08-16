@@ -45,8 +45,6 @@ router.route('/groups/:groupId/destinations/:destinationId')
 // router.route('/groups/:groupId/comments/:commentId')
 //   .delete(comments.delete);
 //
-// router.route('/groups/:groupId/destinations/:destinationId')
-//   .delete(destinations.delete);
 
 
 module.exports = router;

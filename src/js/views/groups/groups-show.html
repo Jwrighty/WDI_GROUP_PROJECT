@@ -60,6 +60,48 @@
 
 
 
+      <div class="pure-g">
+
+        <!-- ng-show="main.user._id === controller.group.createdBy._id" -->
+        <div class="destinations pure-u">
+          <h3>Add a Destination</h3>
+          <form ng-submit="controller.addDestination()">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="name" ng-model="controller.destination.name">
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" placeholder="description" ng-model="controller.destination.description">
+
+            <label for="lat">Lat:</label>
+            <input type="text" name="lat" id="lat" placeholder="lat" ng-model="controller.destination.lat">
+
+            <label for="long">Long:</label>
+            <input type="text" name="long" id="long" placeholder="long" ng-model="controller.destination.long">
+
+            <button type="submit" name="button">Add</button>
+          </form>
+        </div>
+
+        <div class="pure-u">
+          <h3>Current Destinations</h3>
+          <ul>
+            <li ng-repeat="destination in controller.group.destinations">
+              {{ destination.name }}
+              {{ destination.description}}
+              {{ destination.lat}}
+              {{ destination.long}}
+              <button ng-click="controller.removeDestination(destination)">Delete</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
 
 
 

@@ -7,7 +7,6 @@ function destinationsCreate(req, res) {
   .then(group => {
     group.destinations.push(req.body);
     group.save();
-
     res.status(200).json(group);
   });
 }
