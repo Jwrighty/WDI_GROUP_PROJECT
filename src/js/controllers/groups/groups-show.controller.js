@@ -104,7 +104,9 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
       .then(group => {
         console.log('comment has been successfully created!');
         console.log(group);
-        vm.group.comments = group.comments;
+        vm.group.comments.push(vm.comments);
+
+
         $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
         vm.destination = {};
 
