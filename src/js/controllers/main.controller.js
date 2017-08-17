@@ -8,7 +8,7 @@ function MainCtrl(CurrentUserService, $rootScope, $state) {
 
   $rootScope.$on('$stateChangeSuccess', ()=> {
     // vm.hideNav = false;
-    
+
     // if new state === 'home'
       // vm.hideNav = true;
   });
@@ -25,4 +25,5 @@ function MainCtrl(CurrentUserService, $rootScope, $state) {
     vm.user = null;
     $state.go('login');
   });
+  
 }
