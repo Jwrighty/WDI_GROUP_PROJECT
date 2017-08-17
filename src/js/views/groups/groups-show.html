@@ -1,24 +1,29 @@
-<div class="pure-g">
+<div class="pure-g headTitle">
+
   <div class="pure-u-1-2">
+    <h1>{{controller.group.title}}</h1>
     <img src="{{controller.group.image}}" alt="">
     <p>{{ controller.group.description }}</p>
-    <p><strong>Created by</strong> {{ controller.group.createdBy.username }}</p>
-    {{controller.groups}}
-    <div class="">
-      <h3>Attending</h3>
-      <div class="pure-g" ng-repeat="item in controller.group.members">
-        <ul class="unstyled-list">
-          <li class="pure-lg-1-8">
-            <img class="avatar pure-img" src="{{ item.image }}" alt="">
-            <p>{{ item.username}}</p></li>
-          </ul>
-        </div>
-        <button ng-click="controller.members()"> Attend</button>
-        <button ng-click="controller.notAttending()">leave group</button>
-        <a ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit</a>
+    <p><strong>Created by</strong> {{ controller.group.createdBy.username }}<a ng-show="MainCtrl.user._id === controller.group.createdBy._id" ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit</a></p>
+  </div>
+
+
+  <div class="attending pure-u-1-2">
+    <p><strong>When: </strong>{{controller.group.dates}}</p>
+
+    <p><strong>What: </strong>{{controller.group.description}}</p>
+
+    <p><strong>Who's coming:</strong></p>
+    <div class="pure-g">
+      <div class="profile pure-u-1-3 " ng-repeat="item in controller.group.members">
+        <img class="avatar pure-img" src="{{ item.image }}" alt="">
+        <p>{{ item.username}}</p>
       </div>
     </div>
-  </div>
+        <button ng-click="controller.members()"> Attend</button>
+        <button ng-click="controller.notAttending()">leave group</button>
+    </div>
+    </div>
 
   <div class="pure-u-1-1 google-map">
     <google-map id="map"></google-map>
