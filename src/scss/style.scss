@@ -1,4 +1,4 @@
-// @import 'form';
+@import 'form';
 // @import 'errors';
 // @import 'comments';
 @import 'map-locations';
@@ -112,10 +112,6 @@ a{
 
 //*******ALL PAGES************
 
-.backStyle{
-  background-color: red;
-}
-
 body {
   background-color: #f2f2f2;
 }
@@ -127,4 +123,11 @@ body {
   left: 0;
   right: 0;
   z-index: 50;
+}
+
+.profileDetails{
+  text-align: center;
+  ul{
+    list-style-type: none;
+  }
 }

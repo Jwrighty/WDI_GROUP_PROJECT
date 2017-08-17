@@ -1,11 +1,27 @@
-<h1>{{controller.user.username}} 's Profile Page</h1>
-<img width="300" src="{{controller.user.image}}" alt="">
+<div class="showTopSection">
+  <div class="pure-g">
+    <div class="pure-u-1 showTitle">
+      <h1>{{controller.user.username}} 's Profile Page</h1>
+    </div>
+  </div>
 
-<h3>My Details</h3>
-<ul>
-  <li><h4>First Name: {{controller.user.firstName}}</h4></li>
-  <li><h4>Second Name:{{controller.user.lastName}}</h4></li>
-  <li><h4>Email: {{controller.user.email}}</h4></li>
-</ul>
+  <div class="pure-g">
+    <div class="pure-u-1 showImg" >
+      <img class="pure-img" src="{{controller.user.image}}" alt="">
+    </div>
+  </div>
 
-<a ui-sref="usersEdit({ id: controller.user._id })" class="btn btn-primary">Edit</a>
+  <div class="pure-g profileDetails">
+    <div class="pure-u-1">
+
+    <h3>My Details</h3>
+    <ul>
+      <li><h2>First Name:   {{controller.user.firstName}}</h2></li>
+      <li><h2>Second  Name: {{controller.user.lastName}}</h2></li  >
+      <li><h2>Email:  {{controller.user.email}}</h2></li>
+    </ul>
+
+    <a ui-sref="usersEdit({ id: controller.user._id })" class="pure-button">Edit</a>
+    </div>
+  </div>
+</div>
