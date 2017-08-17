@@ -7,6 +7,15 @@
   // border: 2px solid black;
   padding: 25px;
 
+  button {
+    text-align: center;
+    color: white;
+    outline: none;
+    float: right;
+    color: inherit;
+    background-color: transparent;
+
+  }
 
 }
 
@@ -27,13 +36,15 @@
   list-style: none;
   border-radius: 2%;
   color: white;
+
+  ul li {
+    display: inline-block;
+    clear: both;
+    width: 250px;
+  }
 }
 
-ul li {
-  display: inline-block;
-  clear: both;
-  width: 250px;
-}
+
 
 .float-left {
   background-color: #212a45;
@@ -72,12 +83,9 @@ fieldset {
 
 
 
-button {
-  text-align: center;
-  color: white;
-  outline: none;
-  float: right;
-  color: inherit;
-  background-color: transparent;
 
+
+.attend-buttons {
+  margin-top: 40px;
+  margin-bottom: 60px;
 }
