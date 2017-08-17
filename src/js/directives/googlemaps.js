@@ -8,9 +8,6 @@ function googleMap($window, $rootScope, Group, $stateParams) {
   const vm = this;
   // vm.locationData = locationData;
 
-
-
-
   const directive = {
     restrict: 'E',
     replace: true,
@@ -24,11 +21,10 @@ function googleMap($window, $rootScope, Group, $stateParams) {
       description: '='
     },
     link(scope, element) {
+      let markers      = [];
 
-      const map = new $window.google.maps.Map(element[0], {
-        zoom: 12,
-        center: {lat: 51.5074, lng: -0.0918 }
-      });
+      const bounds = new $window.google.maps.LatLngBounds();
+      const map = new $window.google.maps.Map(element[0]);
       const card = document.getElementById('pac-card');
       const input = document.getElementById('pac-input');
       const types = document.getElementById('type-selector');
@@ -64,27 +60,69 @@ function googleMap($window, $rootScope, Group, $stateParams) {
         }
       });
 
-      Group
-      .get({ id: $stateParams.id})
-      .$promise
-      .then(data => {
-        vm.locationData = data.destinations;
 
-        function addMarkersToMap () {
-          for (let i = 0; i < vm.locationData.length; i++) {
-            const marker = new $window.google.maps.Marker({
-              map: map,
-              position: {lat: vm.locationData[i].lat, lng: vm.locationData[i].long},
-              animation: $window.google.maps.Animation.BOUNCE
-            });
-          }
+      $rootScope.$on('destinationData', (event, args) => {
+        if (args.data.length === 0) {
+          var listener = $window.google.maps.event.addListener(map, 'idle', function () {
+            map.setZoom(2);
+            $window.google.maps.event.removeListener(listener);
+          });
         }
-        addMarkersToMap();
-
-        return vm.locationData;
-
+        createMarkers(args.data);
       });
+
+      $rootScope.$on('updatedDestinations', (event, args) => {
+        clearMarkers();
+        createMarkers(args.data);
+      });
+
+      function createMarkers(array) {
+        array.forEach(destination => {
+          const marker = new $window.google.maps.Marker({
+            map: map,
+            position: { lat: destination.lat, lng: destination.long }
+          });
+
+          bounds.extend(marker.position);
+
+          markers.push(marker);
+        });
+
+        map.fitBounds(bounds);
+        map.setZoom(12);
+      }
+
+      $rootScope.$on('centerMapOnDestination', (event, args) => {
+        map.setCenter({lat: args.data.lat, lng: args.data.long });
+      });
+
+      function clearMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
+        }
+        markers = [];
+      }
     }
   };
+
   return directive;
 }
+
+
+// shit way
+// when directive loads, a request is made for the destinations of the group
+// this array is then looped over and for each element in the array a marker is created
+// when a destination is added, a new request is made for the updated array
+// a marker is created for the last element in the array
+
+// good way
+// when the get request is made on the controller load, broadcast the destinations data to the directive
+// so you wouldnt need to make a mirror request on the directive to get the destinations
+// when adding or removing a destination, create a updateDestinations broadcast which will update the directive array.
+
+
+// center map on clicked destination
+  // ng-click on list in html
+  // the function that runs will be passed the destination that has been clicked
+  // broadcast message containing item
+  // set map center to items lat, lng position

@@ -26,25 +26,49 @@ User
   email: 'monkey@monkey.com',
   password: 'password',
   passwordConfirmation: 'password'
+},{
+  username: 'steveo',
+  firstName: 'Steve',
+  lastName: 'Davis',
+  image: 'https://images.pexels.com/photos/7823/selfie.jpg?w=940&h=650&auto=compress&cs=tinysrgb',
+  email: 'steve@davis.com',
+  password: 'password',
+  passwordConfirmation: 'password'
+},{
+  username: 'sallyxoxo',
+  firstName: 'Sally',
+  lastName: 'Smithers',
+  image: 'https://images.pexels.com/photos/58020/pexels-photo-58020.jpeg?w=940&h=650&auto=compress&cs=tinysrgb',
+  email: 'sally@smithers.com',
+  password: 'password',
+  passwordConfirmation: 'password'
 }])
 .then((users) => {
   console.log(`${users.length} users created!`);
 
   return Group
   .create([{
-    title: 'bear party',
-    image: 'http://i2.mirror.co.uk/incoming/article4776355.ece/ALTERNATES/s615/PAY-Polar-bear-party.jpg',
-    dates: new Date(),
+    title: 'Jimmy the Lad\'s Stag',
+    image: 'https://static.pexels.com/photos/37862/musician-rockstar-band-music-37862.jpeg',
+    dates: new Date(2017/11/11),
     createdBy: users[0]._id,
     members: [users[1]._id],
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
   },
   {
-    title: 'Stag Party',
-    image: 'http://bestmansbestman.co.uk/wp-content/uploads/2012/09/6-Winning-Stag-Party-Planning-Tips.jpg',
-    dates: new Date(),
+    title: 'Harriet\'s Hilarious Hen Do',
+    image: 'https://images.pexels.com/photos/160420/photo-booth-wedding-party-girls-160420.jpeg?w=940&h=650&auto=compress&cs=tinysrgb',
+    dates: new Date(2017/12/31),
+    createdBy: users[3]._id,
+    members: [users[0]._id],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },{
+    title: 'Paul the Don - last night of freedom',
+    image: 'https://images.pexels.com/photos/401685/pexels-photo-401685.jpeg?w=940&h=650&auto=compress&cs=tinysrgb',
+    dates: new Date(2018/6/7),
     createdBy: users[1]._id,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    members: [users[3]._id],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
   }]);
 })
 .then((groups)=>{

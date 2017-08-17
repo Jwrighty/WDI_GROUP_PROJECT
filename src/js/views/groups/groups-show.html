@@ -1,7 +1,7 @@
 <div class="pure-g">
   <div class="pure-u-1-2">
     <img src="{{controller.group.image}}" alt="">
-
+    <p>{{ controller.group.description }}</p>
     <p><strong>Created by</strong> {{ controller.group.createdBy.username }}</p>
     {{controller.groups}}
     <div class="">
@@ -59,7 +59,7 @@
       <div>
         <h3>Current Destinations</h3>
         <ul>
-          <li ng-repeat="destination in controller.group.destinations">
+          <li ng-repeat="destination in controller.group.destinations" ng-click="controller.centerMapOnDestination(destination)">
             {{ destination.name }}
             {{ destination.description}}
             <button ng-click="controller.removeDestination(destination)" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Delete</button>
