@@ -1,4 +1,7 @@
-
+$basecolor: #f2f2f2;
+$green: #729167;
+$red: #6f261f;
+$blue: #212a45;
 
 .pac-card{
   margin: 10px 10px 0 0;
@@ -76,12 +79,12 @@
 }
 
 #pac-input:focus {
-  border-color: FIREBRICK;
+  border-color: $red;
 }
 
 #title {
   color: #fff;
-  background-color: FIREBRICK;
+  background-color: $red;
   font-size: 15px;
   font-weight: 500;
   padding: 1px 12px;
