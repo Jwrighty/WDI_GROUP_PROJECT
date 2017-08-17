@@ -14,7 +14,8 @@ function Group(API, $resource) {
       'removeattending': { method: 'GET', url: `${API}/groups/:id/removeattending` },
       'addDestination': { method: 'POST', url: `${API}/groups/:id/destinations/new`},
       'removeDestination': { method: 'DELETE', url: `${API}/groups/:groupId/destinations/:destinationId`},
-      'addComment': { method: 'POST', url: `${API}/groups/:id/comments`}
+      'addComment': { method: 'POST', url: `${API}/groups/:id/comments`},
+      'deleteComment': { method: 'Delete', url: `${API}/groups/:groupId/comments/:commentId`}
     }
     );
 }
