@@ -17,6 +17,7 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
   // vm.deleteComment       = deleteComment;
   vm.user                   = CurrentUserService.currentUser;
 
+
   Group
   .get({ id: $stateParams.id})
   .$promise
@@ -82,10 +83,14 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
     });
   }
 
-  function centerMapOnDestination(destination) {
+  $scope.item = false;
+  function centerMapOnDestination(destination, item) {
     $rootScope.$broadcast('centerMapOnDestination', {
       data: destination
     });
+    console.log($scope.item);
+    console.log(item);
+    $scope.item = true;
   }
 
   function addComment(){
