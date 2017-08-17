@@ -2,7 +2,7 @@
 @import 'errors';
 @import 'comments';
 @import 'map-locations';
-
+@import 'index';
 
 $basecolor: #f2f2f2;
 $green: #729167;
@@ -39,32 +39,7 @@ $blue: #212a45;
 
 //**************INDEX PAGE**********
 
-.pure-g  {
-  div {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  .l-box {
-    padding: 1em;
-    margin: 1em;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    width: 332px;
-    img{
-      width: 300px;
-      height: 250px;
-      position: relative;
-      overflow: hidden;
-    }
-    h3{
-      position: absolute;
-      color: black;
-      background-color: rgba(255,255,255,0.5);
-      z-index: 1;
-      text-align: center;
-    }
-  }
-}
+
 
 
 //***************SHOW PAGE***********************
