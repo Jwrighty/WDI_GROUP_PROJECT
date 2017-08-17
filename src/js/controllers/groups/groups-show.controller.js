@@ -21,6 +21,9 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
   .$promise
   .then(data => {
     vm.group = data;
+    $rootScope.$broadcast('destinationData', {
+      data: vm.group.destinations
+    });
 
     // vm.group.members.indexOf(vm.user._id) === -1 ? vm.attending = true : vm.attending = false;
   });
@@ -67,18 +70,18 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
     .then(group =>{
       vm.group.destinations = group.destinations;
       vm.destination = {};
-      // vm.group.push(group);
+      $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
     });
   }
 
   function removeDestination(destination){
-    console.log(destination._id);
-
     Group
     .removeDestination({ groupId: vm.group._id, destinationId: destination._id} )
     .$promise
     .then(() =>{
       vm.group.destinations.splice(vm.group.destinations.indexOf(destination), 1);
+      $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
+      vm.destination = {};
     });
   }
 
