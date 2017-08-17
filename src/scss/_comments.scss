@@ -1,3 +1,35 @@
+.comments-container {
+  border: 2px solid black
+}
+
+
 .comments-box {
-background-color: black;
+  left: 50%;
+  margin: 50px;
+  padding: 22px;
+  margin: 0 auto;
+}
+
+.comments-list {
+  margin: 25px;
+  padding: 22px ;
+  border: 1px solid black;
+  list-style: none;
+}
+
+ul li {
+  display: inline-block;
+  clear: both;
+}
+
+.float-left {
+  color: blue;
+  float: left;
+  display: inline-block;
+}
+
+.float-right {
+  color: red;
+  clear: both;
+  float: right;
 }

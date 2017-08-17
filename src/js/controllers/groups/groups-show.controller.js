@@ -2,19 +2,20 @@ angular
 .module('project3')
 .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService', '$rootScope', 'API', '$http'];
-function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope, $http, API) {
+GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService', '$rootScope'];
+function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope) {
   const vm = this;
 
   vm.destination            = {};
   vm.placeData              = {};
+  vm.comment                = {};
   vm.members                = userAttending;
   vm.notAttending           = notAttending;
   vm.addDestination         = addDestination;
   vm.removeDestination      = removeDestination;
   vm.addComment             = addComment;
   vm.centerMapOnDestination = centerMapOnDestination;
-  // vm.deleteComment       = deleteComment;
+  vm.deleteComment          = deleteComment;
   vm.user                   = CurrentUserService.currentUser;
 
   Group
@@ -95,15 +96,20 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
       .then(group => {
         console.log('comment has been successfully created!');
         console.log(group);
+        vm.group.comments = group.comments;
+        $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
+        vm.destination = {};
+
       });
   }
 
-  // function deleteComment(comment) {
-  //   Group
-  //     .deleteComment({ groupId: vm.group._id, commentId: comment._id} )
-  //     .$promise
-  //     .then(() =>{
-  //       vm.group.comments.splice(vm.group.comments.indexOf(comment), 1);
-  //     });
-  // }
+  function deleteComment(comment) {
+    Group
+      .deleteComment({ groupId: vm.group._id, commentId: comment._id} )
+      .$promise
+      .then(() =>{
+        vm.group.comments.splice(vm.group.comments.indexOf(comment), 1);
+        vm.comment = {};
+      });
+  }
 }

@@ -18,20 +18,20 @@ function commentsCreate(req, res) {
   .catch(err => console.log(err));
 }
 
-// function commentsDelete(req, res) {
-//   Group
-//     .findById(req.params.groupId)
-//     .exec()
-//     .then(group => {
-//       const comment = group.comments.id(req.params.commentId);
-//       comment.remove();
-//       group.save();
-//       res.status(200).json(group);
-//     });
-// }
+function commentsDelete(req, res) {
+  Group
+    .findById(req.params.groupId)
+    .exec()
+    .then(group => {
+      const comment = group.comments.id(req.params.commentId);
+      comment.remove();
+      group.save();
+      res.status(200).json(group);
+    });
+}
 
 
 module.exports  =  {
-  create: commentsCreate
-  // delete: commentsDelete
+  create: commentsCreate,
+  delete: commentsDelete
 };

@@ -44,8 +44,8 @@ router.route('/groups/:groupId/destinations/:destinationId')
 // Comments
 router.route('/groups/:id/comments')
   .post(comments.create);
-// router.route('/groups/:groupId/comments/:commentId')
-//   .delete(comments.delete);
+router.route('/groups/:groupId/comments/:commentId')
+  .delete(comments.delete);
 
 
 
