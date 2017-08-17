@@ -59,7 +59,7 @@
       <div>
         <h3>Current Destinations</h3>
         <ul>
-          <li ng-repeat="destination in controller.group.destinations">
+          <li ng-repeat="destination in controller.group.destinations" ng-click="controller.centerMapOnDestination(destination)">
             {{ destination.name }}
             {{ destination.description}}
             <button ng-click="controller.removeDestination(destination)" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Delete</button>

@@ -6,15 +6,16 @@ GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService
 function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope) {
   const vm = this;
 
-  vm.destination      = {};
-  vm.placeData        = {};
-  vm.members          = userAttending;
-  vm.notAttending     = notAttending;
-  vm.addDestination   = addDestination;
-  vm.removeDestination = removeDestination;
-  vm.addComment       = addComment;
-  // vm.deleteComment    = deleteComment;
-  vm.user             = CurrentUserService.currentUser;
+  vm.destination            = {};
+  vm.placeData              = {};
+  vm.members                = userAttending;
+  vm.notAttending           = notAttending;
+  vm.addDestination         = addDestination;
+  vm.removeDestination      = removeDestination;
+  vm.addComment             = addComment;
+  vm.centerMapOnDestination = centerMapOnDestination;
+  // vm.deleteComment       = deleteComment;
+  vm.user                   = CurrentUserService.currentUser;
 
   Group
   .get({ id: $stateParams.id})
@@ -24,8 +25,6 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
     $rootScope.$broadcast('destinationData', {
       data: vm.group.destinations
     });
-
-    // vm.group.members.indexOf(vm.user._id) === -1 ? vm.attending = true : vm.attending = false;
   });
 
   $rootScope.$on('gotPlaceData', (event, args) => {
@@ -33,7 +32,6 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
     vm.destination.lat  = args.placeData.lat;
     vm.destination.long = args.placeData.lng;
     vm.destination.description = args.placeData.description;
-
     $scope.$apply();
   });
 
@@ -63,7 +61,6 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
   }
 
   function addDestination(){
-
     Group
     .addDestination({ id: vm.group._id }, vm.destination)
     .$promise
@@ -82,6 +79,12 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
       vm.group.destinations.splice(vm.group.destinations.indexOf(destination), 1);
       $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
       vm.destination = {};
+    });
+  }
+
+  function centerMapOnDestination(destination) {
+    $rootScope.$broadcast('centerMapOnDestination', {
+      data: destination
     });
   }
 

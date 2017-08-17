@@ -92,6 +92,10 @@ function googleMap($window, $rootScope, Group, $stateParams) {
         map.setZoom(12);
       }
 
+      $rootScope.$on('centerMapOnDestination', (event, args) => {
+        map.setCenter({lat: args.data.lat, lng: args.data.long });
+      });
+
       function clearMarkers() {
         for (var i = 0; i < markers.length; i++) {
           markers[i].setMap(null);
