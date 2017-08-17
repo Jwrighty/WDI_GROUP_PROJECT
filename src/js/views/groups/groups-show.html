@@ -2,8 +2,8 @@
 
   <div class="pure-u-1-2">
     <h1>{{controller.group.title}}</h1>
-    <img src="{{controller.group.image}}" alt="">
-    <p>{{ controller.group.description }}</p>
+    <img class="pure-img" src="{{controller.group.image}}" alt="">
+  
     <p><strong>Created by</strong> {{ controller.group.createdBy.username }}<a ng-show="MainCtrl.user._id === controller.group.createdBy._id" ui-sref="groupsEdit({ id: controller.group._id })" class="btn btn-primary">Edit</a></p>
   </div>
 
