@@ -20,96 +20,81 @@
         <p>{{ item.username}}</p>
       </div>
     </div>
-        <button ng-click="controller.members()"> Attend</button>
-        <button ng-click="controller.notAttending()">leave group</button>
-    </div>
+    <button ng-click="controller.members()"> Attend</button>
+    <button ng-click="controller.notAttending()">leave group</button>
+  </div>
+</div>
+
+<div class="pure-u-1-1 google-map">
+  <google-map id="map"></google-map>
+</div>
+
+<div class="pac-card" id="pac-card" >
+  <div>
+    <div id="title" ng-show="MainCtrl.user._id === controller.group.createdBy._id">
+      <p>Plan your trip</p>
     </div>
 
-  <div class="pure-u-1-1 google-map">
-    <google-map id="map"></google-map>
+    <div id="pac-container" ng-show="MainCtrl.user._id === controller.group.createdBy._id">
+      <input id="pac-input" type="text"
+      placeholder="Enter a location">
+    </div>
   </div>
 
-    <div class="pac-card" id="pac-card" >
-      <div>
-        <div id="title" ng-show="MainCtrl.user._id === controller.group.createdBy._id">
-          Add a Destination
-        </div>
+  <div class="destinations">
+    <form ng-submit="controller.addDestination()">
+      <label for="name"></label>
+      <input type="hidden" name="name" id="name" placeholder="name" value="{{name}}" ng-model="controller.destination.name">
+      <label for="description"></label>
+      <input type="hidden" name="description" id="description" value="{{description}}" placeholder="type" ng-model="controller.destination.description">
 
-      <div id="pac-container" ng-show="MainCtrl.user._id === controller.group.createdBy._id">
-        <input id="pac-input" type="text"
-        placeholder="Enter a location">
-      </div>
-    </div>
+      <label for="lat"></label>
+      <input type="hidden" name="lat" id="lat" placeholder="lat"  value="{{lat}}" ng-model="controller.destination.lat">
 
-    <div class="destinations">
-      <!-- <h3>Add a Destination</h3> -->
-      <form ng-submit="controller.addDestination()">
-        <label for="name"></label>
-        <input type="hidden" name="name" id="name" placeholder="name" value="{{name}}" ng-model="controller.destination.name">
-        <label for="description"></label>
-        <input type="hidden" name="description" id="description" value="{{description}}" placeholder="type" ng-model="controller.destination.description">
+      <label for="long"></label>
+      <input type="hidden" name="long" id="long" placeholder="long"  value="{{lng}}" ng-model="controller.destination.long">
 
-        <label for="lat"></label>
-        <input type="hidden" name="lat" id="lat" placeholder="lat"  value="{{lat}}" ng-model="controller.destination.lat">
+      <button type="submit" name="button" class="pure-button" id="addBtn" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Add Destination</button>
+    </form>
+  </div>
+  <h3 id="currentDestination">Current Destinations</h3>
+  <div class="pac-card2">
+    <ul class="destination-list">
+      <li ng-repeat="destination in controller.group.destinations" ng-click="controller.centerMapOnDestination($event, destination)" ng-class="{selected: item}" class="destination-card">
+        {{ destination.name | limitTo : 35 }}
+        <button class="pure-button" ng-click="controller.removeDestination(destination)" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
 
-        <label for="long"></label>
-        <input type="hidden" name="long" id="long" placeholder="long"  value="{{lng}}" ng-model="controller.destination.long">
-
-        <button type="submit" name="button" id="addBtn" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Add Destination</button>
-      </form>
-    </div>
-
-    <div>
-      <!-- ng-show="main.user._id === controller.group.createdBy._id" -->
-      <div>
-        <h3>Current Destinations</h3>
-        <ul>
-          <li ng-repeat="destination in controller.group.destinations" ng-click="controller.centerMapOnDestination($event, destination)" ng-class="{selected: item}">
-            {{ destination.name }}
-            {{ destination.description}}
-            <button ng-click="controller.removeDestination(destination)" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Delete</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    data-ng-repeat="image in images" data-ng-click="toggleObject.item = $index">a
-         <img data-ng-class="{'active' : toggleObject.item == $index}"
-    <!-- <div id="infowindow-content">
-      <img src="/" width="16" height="16" id="place-icon">
-      <span id="place-name"  class="title"></span><br>
-      <span id="place-address"></span>
-    </div> -->
+<div class="pure-g container">
+  <div class="pure-u">
+    <form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
+      <fieldset>
+        <legend><h3>Comments</h3></legend>
+        <input class="comments-box" type="text" ng-model="controller.comment.body" name="body" id="body">
+        <button type="submit" name="button">Comment</button>
+      </fieldset>
+    </form>
   </div>
 
-  <div class="pure-g container">
-    <div class="pure-u">
+  <!-- main.user._id // current user who is logged in -->
+  <!-- comment.user._id // id of user who posted the comment -->
 
-      <form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
-        <fieldset>
-          <legend><h3>Comments</h3></legend>
-          <input class="comments-box" type="text" ng-model="controller.comment.body" name="body" id="body">
-          <button type="submit" name="button">Comment</button>
-        </fieldset>
-      </form>
-    </div>
-
-    <!-- main.user._id // current user who is logged in -->
-    <!-- comment.user._id // id of user who posted the comment -->
-
-    <!-- if the current user id is the SAME as the comment.user.id add css class of right -->
-    <!-- if the current user id is not the SAME as the comment.user.id add css class of left -->
+  <!-- if the current user id is the SAME as the comment.user.id add css class of right -->
+  <!-- if the current user id is not the SAME as the comment.user.id add css class of left -->
 
 
-    <!--  -->
+  <!--  -->
 
-    <div class="pure-u">
-      <div ng-repeat="comment in controller.group.comments">
-        <ul>
-          <li>
-            <p><strong>{{ comment.user.username }}</strong>: {{ comment.body }}</p>
-          </li>
-        </ul>
-      </div>
+  <div class="pure-u">
+    <div ng-repeat="comment in controller.group.comments">
+      <ul>
+        <li>
+          <p><strong>{{ comment.user.username }}</strong>: {{ comment.body }}</p>
+        </li>
+      </ul>
     </div>
   </div>
+</div>

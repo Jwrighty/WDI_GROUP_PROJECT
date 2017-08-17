@@ -86,6 +86,7 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
   // $scope.item = false;
   function centerMapOnDestination(event, destination) {
     angular.element(event.target).parent().children().removeClass('selected');
+    console.log(angular.element(event.target).parent().children());
     if (!(event.target.classList.contains('selected'))) {
       event.target.className += ' selected';
     }
