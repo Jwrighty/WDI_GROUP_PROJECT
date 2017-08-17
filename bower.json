@@ -19,6 +19,8 @@
     "angular-jwt": "^0.1.9",
     "angular-ui-router": "^1.0.5",
     "angular-resource": "^1.6.5",
-    "pure": "^1.0.0"
+    "pure": "^1.0.0",
+    "angular-messages": "^1.5.9",
+    "animate.css": "^3.5.2"
   }
 }

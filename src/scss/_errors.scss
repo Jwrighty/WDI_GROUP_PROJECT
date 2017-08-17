@@ -1,0 +1,22 @@
+$invalid-color: #EB1D3A;
+$valid-color:   green;
+
+form.ng-dirty {
+  input {
+    &.ng-valid {
+      border: 2px solid $valid-color;
+    }
+
+    &.ng-invalid {
+      border: 2px solid $invalid-color;
+    }
+  }
+}
+
+.ng-message-error p {
+  border: 1px solid $invalid-color;
+  background: lighten($invalid-color, 30%);
+  padding: 5px;
+  border-radius: 5px;
+  color: $invalid-color;
+}
