@@ -42,7 +42,7 @@ router.route('/groups/:groupId/destinations/:destinationId')
   .delete(destinations.delete);
 
 // Comments
-router.route('/groups/:groupId/comments')
+router.route('/groups/:id/comments')
   .post(comments.create);
 // router.route('/groups/:groupId/comments/:commentId')
 //   .delete(comments.delete);

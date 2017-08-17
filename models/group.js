@@ -1,16 +1,15 @@
 const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
-  body: String
-  // user: { type: mongoose.Schema.ObjectId, ref: 'User'}
+  body: { type: String },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
 const destinationsSchema = new mongoose.Schema({
-  name: String,
-  description: String,
-  lat: Number,
-  long: Number
-
+  name: { type: String },
+  description: { type: String },
+  lat: { type: Number },
+  long: { type: Number }
 });
 
 const groupSchema = new mongoose.Schema({
