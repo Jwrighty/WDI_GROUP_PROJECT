@@ -1,26 +1,29 @@
-.pure-g{
-  // width: 100%;
-  // margin: 0 5%;
+.indexTitle {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: -10px;
+}
+.indexSection{
+    background-color: $red;
+    color: white;
+    h1 {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 50px;
+    }
+}
+.indexBack{
+
   text-align: center;
   .indexGroups {
-    // margin: 0 auto;
     margin-top: 40px;
     height: 250px;
-    // width: 332px;
     text-align: center;
     img{
       height: 250px;
-      // width: max;
-      // width: 400px;
-      // position: relative;
       overflow: hidden;
-    }
-    .imgCont{
-      // width: 400px;
     }
     .imgTitle{
       width: 100%;
-
       z-index: 2;
     }
     h3{

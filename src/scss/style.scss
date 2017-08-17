@@ -1,6 +1,6 @@
-@import 'form';
-@import 'errors';
-@import 'comments';
+// @import 'form';
+// @import 'errors';
+// // @import 'comments';
 @import 'map-locations';
 @import 'index';
 
@@ -102,11 +102,11 @@ a{
 .showTopSection {
   background-color: $blue;
   // background-image: url(http://i.telegraph.co.uk/multimedia/archive/02080/sta_2080364b.jpg);
-  height: 650px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  // height: 650px;
+  // background-attachment: fixed;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
   color: white;
 }
 
