@@ -74,13 +74,13 @@
     </div> -->
   </div>
 
-  <div class="pure-g">
+  <div class="pure-g container">
     <div class="pure-u">
 
       <form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
         <fieldset>
           <legend><h3>Comments</h3></legend>
-          <input type="text" ng-model="controller.comment.body" name="body" id="body">
+          <input class="comments-box" type="text" ng-model="controller.comment.body" name="body" id="body">
           <button type="submit" name="button">Comment</button>
         </fieldset>
       </form>
