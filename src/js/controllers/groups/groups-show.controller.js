@@ -2,8 +2,8 @@ angular
 .module('project3')
 .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService', '$rootScope'];
-function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope) {
+GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService', '$rootScope', 'API', '$http'];
+function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope, $http, API) {
   const vm = this;
 
   vm.destination      = {};
@@ -60,7 +60,6 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
   }
 
   function addDestination(){
-
     Group
     .addDestination({ id: vm.group._id }, vm.destination)
     .$promise
@@ -83,19 +82,13 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
   }
 
   function addComment(){
-    console.log(vm.group._id);
-    // Group
-    //   .addComment({ groupId: vm.group._id }, vm.comments)
-    //   .$promise
-    //   .then(group =>  {
-    //     vm.group.comments = group.comments;
-    //     vm.comments = {};
-    //   });
-    $http.post(`${API}/groups/${vm.group._id}/comments`, vm.comments)
-    .then(group =>  {
-      vm.group.comments = group.comments;
-      vm.comments = {};
-    });
+    Group
+      .addComment({ id: vm.group._id }, vm.comment)
+      .$promise
+      .then(group => {
+        console.log('comment has been successfully created!');
+        console.log(group);
+      });
   }
 
   // function deleteComment(comment) {

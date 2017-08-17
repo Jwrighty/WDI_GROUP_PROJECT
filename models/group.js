@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
-  body: String
-  // user: { type: mongoose.Schema.ObjectId, ref: 'User'}
+  body: { type: String },
+  user: { type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
 const destinationsSchema = new mongoose.Schema({

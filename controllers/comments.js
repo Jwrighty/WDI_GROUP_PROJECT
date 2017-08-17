@@ -1,18 +1,21 @@
 const Group = require('../models/group');
 
 function commentsCreate(req, res) {
-  console.log(req.params.id);
   Group
   .findById(req.params.id)
   .exec()
   .then(group => {
-    req.body.user = req.user._id;
-    console.log(group);
-    group.comments.push(req.body);
-    group.save();
+    if (group.members.indexOf(req.user.id) !== -1) {
+      req.body.user = req.user._id;
+      group.comments.push(req.body);
+      group.save();
 
-    res.status(200).json(group);
-  });
+      return res.status(200).json(group);
+    } else {
+      return res.status(500).json({ message: 'You must be a member to comment on the group'});
+    }
+  })
+  .catch(err => console.log(err));
 }
 
 // function commentsDelete(req, res) {

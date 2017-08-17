@@ -20,4 +20,6 @@ function RegisterCtrl(User, CurrentUserService, $state){
       console.log(err);
     });
   };
+
+  
 }
