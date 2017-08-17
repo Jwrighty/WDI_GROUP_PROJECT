@@ -6,7 +6,7 @@ function commentsCreate(req, res) {
   .exec()
   .then(group => {
     if (group.members.indexOf(req.user.id) !== -1) {
-      req.body.user = req.user._id;
+      req.body.user = req.user.id;
       group.comments.push(req.body);
       group.save();
 

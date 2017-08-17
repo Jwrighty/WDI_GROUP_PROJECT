@@ -79,21 +79,27 @@
 
       <form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
         <fieldset>
-          <legend><h3>Bantz</h3></legend>
-          <!--
-          <textarea name="comment" rows="8" cols="80" ng-model="controller.comment.body"></textarea> -->
+          <legend><h3>Comments</h3></legend>
           <input type="text" ng-model="controller.comment.body" name="body" id="body">
           <button type="submit" name="button">Comment</button>
         </fieldset>
       </form>
     </div>
 
+    <!-- main.user._id // current user who is logged in -->
+    <!-- comment.user._id // id of user who posted the comment -->
+
+    <!-- if the current user id is the SAME as the comment.user.id add css class of right -->
+    <!-- if the current user id is not the SAME as the comment.user.id add css class of left -->
+
+
+    <!--  -->
+
     <div class="pure-u">
       <div ng-repeat="comment in controller.group.comments">
         <ul>
-          <li >
-            {{ comment.name }}
-            <!-- <button ng-click="controller.deleteComment(comment)">Delete</button> -->
+          <li>
+            <p><strong>{{ comment.user.username }}</strong>: {{ comment.body }}</p>
           </li>
         </ul>
       </div>

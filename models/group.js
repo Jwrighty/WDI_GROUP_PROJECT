@@ -6,11 +6,10 @@ const commentSchema = new mongoose.Schema({
 });
 
 const destinationsSchema = new mongoose.Schema({
-  name: String,
-  description: String,
-  lat: Number,
-  long: Number
-
+  name: { type: String },
+  description: { type: String },
+  lat: { type: Number },
+  long: { type: Number }
 });
 
 const groupSchema = new mongoose.Schema({
