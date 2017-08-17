@@ -17,6 +17,7 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
   // vm.deleteComment       = deleteComment;
   vm.user                   = CurrentUserService.currentUser;
 
+
   Group
   .get({ id: $stateParams.id})
   .$promise
@@ -82,10 +83,16 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
     });
   }
 
-  function centerMapOnDestination(destination) {
+  // $scope.item = false;
+  function centerMapOnDestination(event, destination) {
+    angular.element(event.target).parent().children().removeClass('selected');
+    if (!(event.target.classList.contains('selected'))) {
+      event.target.className += ' selected';
+    }
     $rootScope.$broadcast('centerMapOnDestination', {
       data: destination
     });
+    // $scope.item = true;
   }
 
   function addComment(){

@@ -89,7 +89,7 @@ function googleMap($window, $rootScope, Group, $stateParams) {
         });
 
         map.fitBounds(bounds);
-        map.setZoom(12);
+        map.setZoom(10);
       }
 
       $rootScope.$on('centerMapOnDestination', (event, args) => {
