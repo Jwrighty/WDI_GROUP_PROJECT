@@ -59,7 +59,7 @@
       <div>
         <h3>Current Destinations</h3>
         <ul>
-          <li ng-repeat="destination in controller.group.destinations" ng-click="controller.centerMapOnDestination(destination, item)" ng-class="{selected: item}">
+          <li ng-repeat="destination in controller.group.destinations" ng-click="controller.centerMapOnDestination($event, destination)" ng-class="{selected: item}">
             {{ destination.name }}
             {{ destination.description}}
             <button ng-click="controller.removeDestination(destination)" ng-show="MainCtrl.user._id === controller.group.createdBy._id">Delete</button>
@@ -67,6 +67,9 @@
         </ul>
       </div>
     </div>
+
+    data-ng-repeat="image in images" data-ng-click="toggleObject.item = $index">a
+         <img data-ng-class="{'active' : toggleObject.item == $index}"
     <!-- <div id="infowindow-content">
       <img src="/" width="16" height="16" id="place-icon">
       <span id="place-name"  class="title"></span><br>

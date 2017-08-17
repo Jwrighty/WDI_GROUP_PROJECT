@@ -83,14 +83,16 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
     });
   }
 
-  $scope.item = false;
-  function centerMapOnDestination(destination, item) {
+  // $scope.item = false;
+  function centerMapOnDestination(event, destination) {
+    angular.element(event.target).parent().children().removeClass('selected');
+    if (!(event.target.classList.contains('selected'))) {
+      event.target.className += ' selected';
+    }
     $rootScope.$broadcast('centerMapOnDestination', {
       data: destination
     });
-    console.log($scope.item);
-    console.log(item);
-    $scope.item = true;
+    // $scope.item = true;
   }
 
   function addComment(){
