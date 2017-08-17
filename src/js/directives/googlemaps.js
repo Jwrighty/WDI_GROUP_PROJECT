@@ -2,12 +2,8 @@ angular
 .module('project3')
 .directive('googleMap', googleMap);
 
-googleMap.$inject = ['$window', '$rootScope', 'Group', '$stateParams'];
-function googleMap($window, $rootScope, Group, $stateParams) {
-  // const markerData =  [[52.238, -0.888],[52.242, -0.889]];
-  const vm = this;
-  // vm.locationData = locationData;
-
+googleMap.$inject = ['$window', '$rootScope'];
+function googleMap($window, $rootScope) {
   const directive = {
     restrict: 'E',
     replace: true,
@@ -27,8 +23,6 @@ function googleMap($window, $rootScope, Group, $stateParams) {
       const map = new $window.google.maps.Map(element[0]);
       const card = document.getElementById('pac-card');
       const input = document.getElementById('pac-input');
-      const types = document.getElementById('type-selector');
-      const strictBounds = document.getElementById('strict-bounds-selector');
 
       map.controls[$window.google.maps.ControlPosition.TOP_RIGHT].push(card);
 
@@ -89,7 +83,7 @@ function googleMap($window, $rootScope, Group, $stateParams) {
         });
 
         map.fitBounds(bounds);
-        map.setZoom(12);
+        map.setZoom(10);
       }
 
       $rootScope.$on('centerMapOnDestination', (event, args) => {
