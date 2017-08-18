@@ -13,25 +13,26 @@
       </div>
     </div>
 
-
     <div class="pure-g">
       <div class="pure-u-1-2 showCreatedBy">
         <p><strong>Created by</strong> {{ controller.group.createdBy.username }}</p>
       </div>
-      <div class="pure-u-1-2">
-        <p><strong>When: </strong>{{controller.group.dates}}</p>
+      <div class="pure-u-1-2 showWhen">
+        <p><strong>When: </strong>{{controller.group.dates | date:'MM/dd/yyyy'}}</p>
+      </div>
+    </div>
+
+    <div class="pure-g showDescription">
+      <div class="pure-u-1">
+        <p>{{controller.group.description}}</p>
+      </div>
+      <div class="pure-u-1 showEdit">
+        <a ng-show="MainCtrl.user._id === controller.group.createdBy._id" ui-sref="groupsEdit({ id: controller.group._id })">Edit group Information</a>
       </div>
     </div>
   </div>
 </div>
-<div class="pure-g showDescription">
-  <div class="pure-u-1">
-    <p>{{controller.group.description}}</p>
-  </div>
-  <div class="pure-u-1 showEdit">
-    <a ng-show="MainCtrl.user._id === controller.group.createdBy._id" ui-sref="groupsEdit({ id: controller.group._id })">Edit group Information</a>
-  </div>
-</div>
+
 
 <div class="pure-u-1-1 google-map">
   <google-map id="map"></google-map>

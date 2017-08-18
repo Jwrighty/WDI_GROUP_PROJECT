@@ -57,7 +57,7 @@ User
   },
   {
     title: 'Harriet\'s Hilarious Hen Do',
-    image: 'https://images.pexels.com/photos/160420/photo-booth-wedding-party-girls-160420.jpeg?w=940&h=650&auto=compress&cs=tinysrgb',
+    image: 'https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?w=940&h=650&auto=compress&cs=tinysrgb',
     dates: new Date(2017/12/31),
     createdBy: users[3]._id,
     members: [users[0]._id],
