@@ -1,102 +1,79 @@
-$basecolor: #f2f2f2 ;
-$green: #729167 ;
-$red: #6f261f ;
-$blue: #212a45 ;
+.bottom-of-page {
 
-.showBottom {
-  // margin-left: 82px;
-  // margin-right: 27px;
-  background-color: $green;
-}
-
-.comments-container {
-  // border: 2px solid black;
-  padding: 0px 25px;
-
-  button {
+  .whos-attending{
     text-align: center;
-    color: white;
-    outline: none;
-    float: right;
-    color: inherit;
-    background-color: transparent;
+    float: left;
 
   }
 
-}
-
-
-
-.comments-box {
-  left: 50%;
-  margin: 50px;
-  padding: 22px;
-  margin: 0 auto;
-
-}
-
-.comments-list {
-  margin: 25px;
-  padding: 22px ;
-  border: 1px solid black;
-  list-style: none;
-  border-radius: 2%;
-  color: white;
-
-  ul li {
-    display: inline-block;
+  .the-buttons {
+    margin-top: 15px;
+    text-align: center;
     clear: both;
-    width: 250px;
+    display: inline-block;
+
+    button {
+      margin: 5px;
+      width: 150px;
+      height: 30px;
+      border: 1px solid;
+      background-color: transparent;
+    }
   }
-}
+  .comments-and-attending {
+    // text-align: center;
+    padding-left: 300px;
+    padding-right: 100px;
 
 
+    .comments {
+      width: 500px;
+      margin-right: 20px;
+      float: left;
 
-.float-left {
-  background-color: #212a45;
-  opacity: 0.5;
-  float: left;
-  clear: both;
-  display: inline-block;
-}
+      .comment-submit {
+        margin-right: 48px;
+      }
 
-.float-right {
-  background-color: #6f261f;
-  opacity: 0.5;
-  display: inline-block;
-  float: right;
-  clear: both;
-
-
-}
-
-fieldset {
-  // border: 2px solid black;
-  // padding: 30px;
-  // margin-left: 82px;
-  // margin-right: 27px;
+      .float-left {
+        border: 1px solid blue;
+        border-radius: 5%;
+        // opacity: 0.5;
+        float: left;
+        clear: both;
+        display: inline-block;
+        width: 300px;
+        height: auto;
 
 
-  h3 {
-    margin-top: 11px;
+      }
+
+      .float-right {
+        border: 1px solid red;
+        border-radius: 5%;
+        // opacity: 0.5;
+        display: inline-block;
+        float: right;
+        clear: both;
+        margin-right: 60px;
+        margin-top: 10px;
+        width: 300px;
+        height: auto;
+        text-align: right;
+        padding-right: 20px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      button {
+        background-color: transparent;
+        margin-right: 20px;
+        outline: none;
+        clear: both;
+        display: inline-block;
+        float: left;
+
+      }
+    }
   }
-
-
-}
-
-.display-comments {
-  margin: 0 auto;
-}
-
-.width-73 {
-  width: 73%;
-}
-
-
-
-
-
-.attend-buttons {
-  margin-top: 40px;
-  margin-bottom: 30px;
 }
