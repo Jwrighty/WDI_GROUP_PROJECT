@@ -60,8 +60,13 @@ $blue: #212a45;
 
 }
 .showCreatedBy{
-  text-align: right;
-  padding-right: 36px;
+  text-align: center;
+  // padding-right: 36px;
+  // margin-left: -20px;
+}
+
+.showWhen {
+  text-align: center;
 }
 .showDescription{
   text-align: center;
@@ -70,8 +75,23 @@ $blue: #212a45;
   margin-left: auto;
   margin-right: auto;
 }
+
+.showEdit{
+
+  background-color: $red;
+  width: 180px;
+  margin: 0 auto 20px;
+  padding: 5px;
+
+  a {
+    color: white ;
+    font-weight: 300;
+    font-size: 13px;
+  }
+}
 a{
   color: #8A8D91;
+  text-decoration: none;
 }
 .showAttendBtn{
   text-align: right;
