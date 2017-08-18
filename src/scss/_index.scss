@@ -13,8 +13,8 @@
     }
   }
   img{
-    height: 250px;
-    width: 100%;
+    height: 300px;
+    // width: 100%;
   }
   .indexImgRow{
     text-align: center;
@@ -24,6 +24,9 @@
       border: 0.5px solid white;
       margin: 1px;
       margin-bottom: 10px;
+      overflow: hidden;
+      transition: 0.3s ease;
+   cursor: pointer;
       .h3{
         margin-bottom: 10px;
         background-color: $blue;
@@ -38,6 +41,6 @@
   -moz-transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -o-transform: scale(1.1);
-  transform: scale(1.1);
+  transform: scale(1.05);
   overflow: hidden;
 }
