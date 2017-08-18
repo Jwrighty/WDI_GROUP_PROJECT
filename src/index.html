@@ -25,11 +25,10 @@
 
         <li class="pure-menu-item" ng-show="MainCtrl.user"><a ui-sref="groupsIndex" class="pure-menu-link">All the Do's</a></li>
         <li class="pure-menu-item" ng-show="MainCtrl.user"><a ui-sref="groupsNew" class="pure-menu-link">Add a do</a></li>
+        <li class="pure-menu-item navLogo"> <a ui-sref="home" class="pure-menu-heading pure-menu-link">Havado</a></li>
       </ul>
-      <div class="navLogo">
-      <a ui-sref="home" class="pure-menu-heading pure-menu-link">Havado</a>
-      </div>
-      <div class="navRight">
+
+      <div class="pure-menu-list navRight pull-right">
       <ul>
         <li class="pure-menu-item" ng-show="MainCtrl.user"><p class="pure-menu-item"><a ui-sref="usersShow({id: MainCtrl.user._id})">Welcome, {{ MainCtrl.user.username }}</a></p></li>
         <li class="pure-menu-item"></li>
