@@ -1,3 +1,11 @@
-.navRight{
-  float: right;
+.pure-menu{
+  .navRight{
+  float:right;
+  padding-right: 40px;
+  }
+
+  a{
+    margin-left: 25%
+  }
+
 }
