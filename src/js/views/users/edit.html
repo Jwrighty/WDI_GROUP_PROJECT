@@ -20,9 +20,10 @@
 
         <input class="pure-input-1-3" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="controller.user.passwordConfirmation" placeholder="Password confirmation">
 
-        <button type="submit" class="pure-button pure-button-primary">Update</button>
+        <!-- <button type="submit" class="pure-button pure-button-primary">Update</button> -->
 
       </fieldset>
     </form>
   </div>
 </div>
+  <a ui-sref="usersShow({ id: controller.user._id })" class="pure-button">Update</a>
