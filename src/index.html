@@ -19,16 +19,25 @@
 <body ng-controller="MainCtrl as MainCtrl">
   <header ng-hide="main.hideNav">
     <div class="pure-menu pure-menu-horizontal">
-      <a ui-sref="home" class="pure-menu-heading pure-menu-link">Havado</a>
+
+
       <ul class="pure-menu-list">
-        <li class="pure-menu-item" ng-hide="MainCtrl.user"><a ui-sref="register" class="pure-menu-link">Register</a></li>
-        <li class="pure-menu-item" ng-hide="MainCtrl.user"><a ui-sref="login" class="pure-menu-link">Login</a></li>
+
         <li class="pure-menu-item" ng-show="MainCtrl.user"><a ui-sref="groupsIndex" class="pure-menu-link">All the Do's</a></li>
         <li class="pure-menu-item" ng-show="MainCtrl.user"><a ui-sref="groupsNew" class="pure-menu-link">Add a do</a></li>
+      </ul>
+      <div class="navLogo">
+      <a ui-sref="home" class="pure-menu-heading pure-menu-link">Havado</a>
+      </div>
+      <div class="navRight">
+      <ul>
         <li class="pure-menu-item" ng-show="MainCtrl.user"><p class="pure-menu-item"><a ui-sref="usersShow({id: MainCtrl.user._id})">Welcome, {{ MainCtrl.user.username }}</a></p></li>
         <li class="pure-menu-item"></li>
         <li class="pure-menu-item" ng-show="MainCtrl.user"><a ng-click="MainCtrl.logout()" class="pure-menu-link">Logout</a></li>
+        <li class="pure-menu-item" ng-hide="MainCtrl.user"><a ui-sref="register" class="pure-menu-link">Register</a></li>
+        <li class="pure-menu-item" ng-hide="MainCtrl.user"><a ui-sref="login" class="pure-menu-link">Login</a></li>
       </ul>
+      </div>
     </div>
   </header>
   <main class="container" ui-view></main>
