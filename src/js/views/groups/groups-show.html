@@ -18,7 +18,7 @@
         <p><strong>Created by</strong> {{ controller.group.createdBy.username }}</p>
       </div>
       <div class="pure-u-1-2 showWhen">
-        <p><strong>When: </strong>{{controller.group.dates}}</p>
+        <p><strong>When: </strong>{{controller.group.dates | date:'MM/dd/yyyy'}}</p>
       </div>
     </div>
 
