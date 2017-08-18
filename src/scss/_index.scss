@@ -1,0 +1,35 @@
+.pure-g{
+  // width: 100%;
+  // margin: 0 5%;
+  text-align: center;
+  .indexGroups {
+    // margin: 0 auto;
+    margin-top: 40px;
+    height: 250px;
+    // width: 332px;
+    text-align: center;
+    img{
+      height: 250px;
+      // width: max;
+      // width: 400px;
+      // position: relative;
+      overflow: hidden;
+    }
+    .imgCont{
+      // width: 400px;
+    }
+    .imgTitle{
+      width: 100%;
+
+      z-index: 2;
+    }
+    h3{
+      position: absolute;
+      color: black;
+      z-index: 1;
+      margin-top: 229px;
+      width:360;
+      background-color: rgba(255,255,255,0.6);
+    }
+  }
+}
