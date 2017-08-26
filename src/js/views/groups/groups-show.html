@@ -142,17 +142,16 @@
           <button class="pure-button comment-submit" type="submit" name="button">Comment</button>
         </fieldset>
       </form>
-<div class="display-comments">
-  <div ng-repeat="comment in controller.group.comments" >
-    <ul>
-      <li class="comments-list" ng-class="MainCtrl.user._id === comment.user._id ? 'float-right' : 'float-left'">
-        <p><strong ng-hide="MainCtrl.user._id === comment.user._id">{{ comment.user.username }}:</strong> <br>{{comment.body }}</p>
-        <button class="pure-button"         ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id ">X</button>
-      </li>
-    </ul>
-  </div>
-</div>
-
+      <div class="display-comments">
+        <div ng-repeat="comment in controller.group.comments" >
+          <ul>
+            <li class="comments-list" ng-class="MainCtrl.user._id === comment.user._id ? 'float-right' : 'float-left'">
+              <p><strong ng-hide="MainCtrl.user._id === comment.user._id">{{ comment.user.username }}:</strong> <br>{{comment.body }}</p>
+              <button class="pure-button"         ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id ">X</button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <div class="pure-u-1-2 whos-attending">
@@ -161,7 +160,6 @@
         <img class="avatar pure-img" src="{{ item.image }}" >
         <p>{{ item.username}}</p>
       </div>
-
     </div>
 
   </div>
