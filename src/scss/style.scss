@@ -1,145 +1,25 @@
 @import 'form';
 // @import 'errors';
-@import 'comments';
+// @import 'comments';
 @import 'map-locations';
 @import 'index';
+@import 'show';
+@import 'homepage';
 
 $basecolor: #f2f2f2;
 $green: #A5B99E;
 $red: #96484E;
 $blue: #373f57;
 
-
-//****************HOMEPAGE***************
-.homeImg {
-  .header-image {
-    width: 100%;
-    height: 100%;
-  }
-  // .header-image:hover {
-  //   -ms-transform: scale(1.2);
-  //   -moz-transform: scale(1.2);
-  //   -webkit-transform: scale(1.2);
-  //   -o-transform: scale(1.2);
-  //   transform: scale(1.2);
-  //   overflow: hidden;
-  // }
-
-  .tagline {
-    position: absolute;
-    // top: 350px;
-    left: 33%;
-    color: white;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 100px;
-
-  }
-
-}
-
-//**************INDEX PAGE**********
-
-
-
-
-//***************SHOW PAGE***********************
-.showTitle {
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: -10px;
-  h1 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 50px;
-  }
-}
-.showImg{
-  width: 40%;
-  margin: 0 auto;
-  border: 5px $basecolor solid;
-
-}
-.showCreatedBy{
-  text-align: center;
-  // padding-right: 36px;
-  // margin-left: -20px;
-}
-
-.showWhen {
-  text-align: center;
-}
-.showDescription{
-  text-align: center;
-  // margin-bottom: 30px;
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.showEdit{
-  background-color: $red;
-  width: 180px;
-  margin: 0 auto 20px;
-  padding: 5px;
-
-  a {
-    color: white ;
-    font-weight: 300;
-    font-size: 13px;
-  }
-}
-a{
-  color: #8A8D91;
-  text-decoration: none;
-}
-.showAttendBtn{
-  text-align: right;
-  padding-right: 36px;
-}
-.profile{
-  text-align: center;
-  display: inline-block;
-  overflow: hidden;
-
-
-
-  // margin: 10px 10px 0px;
-
-
-  .avatar {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 10px 10px 0px;
-  }
-}
-
-.showBottom{
-  margin-top: 30px;
-
-}
-
-.google-map {
-  width: 100%;
-  height: 600px;
-  // display: inline-block;
-}
-
-.showTopSection {
-  background-color: $blue;
-  // background-image: url(http://i.telegraph.co.uk/multimedia/archive/02080/sta_2080364b.jpg);
-  // height: 650px;
-  // background-attachment: fixed;
-  // background-position: center;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  color: white;
-}
-
 //*******ALL PAGES************
 
 body {
   background-color: $red;
+}
+
+a{
+  color: #8A8D91;
+  text-decoration: none;
 }
 
 .pure-menu {

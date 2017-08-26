@@ -1,37 +1,44 @@
-<div class="headTitle">
 
-  <div class="showTopSection">
-    <div class="pure-g">
-      <div class="pure-u-1 showTitle">
-        <h1>{{controller.group.title}}</h1>
-      </div>
-    </div>
 
-    <div class="pure-g">
-      <div class="pure-u-1 showImg" >
-        <img class="pure-img" src="{{controller.group.image}}" alt="">
-      </div>
-    </div>
-
-    <div class="pure-g">
-      <div class="pure-u-1-2 showCreatedBy">
-        <p><strong>Created by</strong> {{ controller.group.createdBy.username }}</p>
-      </div>
-      <div class="pure-u-1-2 showWhen">
-        <p><strong>When: </strong>{{controller.group.dates | date:'MM/dd/yyyy'}}</p>
-      </div>
-    </div>
-
-    <div class="pure-g showDescription">
-      <div class="pure-u-1">
-        <p>{{controller.group.description}}</p>
-      </div>
-      <div class="pure-u-1 showEdit">
-        <a ng-show="MainCtrl.user._id === controller.group.createdBy._id" ui-sref="groupsEdit({ id: controller.group._id })">Edit group Information</a>
-      </div>
+<section class="showTopSection">
+  <div class="pure-g">
+    <div class="pure-u-1 showTitle">
+      <h1>{{controller.group.title}}</h1>
     </div>
   </div>
-</div>
+
+  <div class="pure-g">
+    <div class="pure-u-1 showImg" >
+      <img class="pure-img" src="{{controller.group.image}}" alt="">
+    </div>
+  </div>
+
+
+  <div class="pure-g showCreatedBy">
+    <div class="pure-u-1">
+      <p>This event will be hosted by <strong>{{ controller.group.createdBy.username }}</strong> on <strong>{{controller.group.dates | date:'MM/dd/yyyy'}}</strong></p>
+    </div>
+  </div>
+
+  <div class="pure-g showDescription">
+    <div class="pure-u-1">
+
+      <p>{{controller.group.description}}</p>
+    </div>
+  </div>
+
+  <div class="RSVP-buttons pure-g">
+    <div class="pure-u-1-3"></div>
+    <div class="pure-u-1-3 the-buttons">
+      <button class="pure-button AB" ng-click="controller.members()"> Attend</button>
+      <button class="pure-button " ng-show="MainCtrl.user._id === controller.group.createdBy._id" ui-sref="groupsEdit({ id: controller.group._id })">Edit group Information</button>
+      <button class="pure-button AB" ng-click="controller.notAttending()">Leave</button>
+    </div>
+    <div class="pure-u-1-3"></div>
+  </div>
+
+</section>
+
 
 
 <div class="pure-u-1-1 google-map">
@@ -77,77 +84,26 @@
   </div>
 </div>
 
-
-<!-- <div class="showBottom">
-
-
-  <div class="pure-g attend-buttons">
-    <div class="pure-u-1-2 showAttendBtn">
-      <button class="pure-button" ng-click="controller.members()"> Attend</button>
-    </div>
-    <button class="pure-button" ng-click="controller.notAttending()">Bail</button>
-  </div>
-
-
-
-  <div class="pure-g">
-    <div class="comments-container">
-      <div class="pure-u-1-2 width-73">
-        <form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
-          <fieldset>
-            <h3>Comments</h3>
-            <textarea rows="4" cols="50" class="comments-box" type="text" ng-model="controller.comment.body" name="body" id="body"></textarea>
-            <button type="submit" name="button">Comment</button>
-          </fieldset>
-        </form>
-
-
-
-        <div ng-repeat="comment in controller.group.comments" >
-          <ul>
-            <li class="comments-list" ng-class="MainCtrl.user._id === comment.user._id ? 'float-right' : 'float-left'">
-              <p><strong>{{ comment.user.username }}</strong>: <br>{{comment.body }}</p>
-              <button ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id ">X</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="pure-u-1-2">
-      <h3>Who's coming:</h3>
-      <div class="profile" ng-repeat="item in controller.group.members">
-        <img class="avatar pure-img" src="{{ item.image }}" alt="">
-        <p>{{ item.username}}</p>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <section class="bottom-of-page">
-  <div class="RSVP-buttons pure-g">
-    <div class="pure-u-1-3"></div>
-    <div class="pure-u-1-3 the-buttons">
-      <button class="pure-button" ng-click="controller.members()"> Attend</button>
-      <button class="pure-button" ng-click="controller.notAttending()">Bail</button>
-    </div>
-    <div class="pure-u-1-3"></div>
-  </div>
+
 
   <div class="pure-g comments-and-attending">
     <div class="pure-u-1-2 comments">
+      <div class="write-comments">
       <form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
         <fieldset>
-          <h3>Comments</h3>
+          <h2>Comments</h2>
           <textarea rows="4" cols="50" class="comments-box" type="text" ng-model="controller.comment.body" name="body" id="body"></textarea>
           <button class="pure-button comment-submit" type="submit" name="button">Comment</button>
         </fieldset>
       </form>
+      </div>
       <div class="display-comments">
         <div ng-repeat="comment in controller.group.comments" >
           <ul>
             <li class="comments-list" ng-class="MainCtrl.user._id === comment.user._id ? 'float-right' : 'float-left'">
               <p><strong ng-hide="MainCtrl.user._id === comment.user._id">{{ comment.user.username }}:</strong> <br>{{comment.body }}</p>
-              <button class="pure-button"         ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id ">X</button>
+              <button class="pure-button" ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id ">X</button>
             </li>
           </ul>
         </div>
@@ -155,10 +111,14 @@
     </div>
 
     <div class="pure-u-1-2 whos-attending">
-      <h3>Who's coming:</h3>
-      <div class="profile" ng-repeat="item in controller.group.members">
-        <img class="avatar pure-img" src="{{ item.image }}" >
-        <p>{{ item.username}}</p>
+      <h2>Who's coming:</h2>
+      <div class="pure-g">
+        <div class="profile pure-u-1-6" ng-repeat="item in controller.group.members">
+          <div class="avatar">
+            <img class=" pure-img" src="{{ item.image }}" >
+          </div>
+          <p>{{ item.username}}</p>
+        </div>
       </div>
     </div>
 
