@@ -7,4 +7,4 @@ Heroku: [https://frozen-savannah-91722.herokuapp.com/]()
 ![](https://i.imgur.com/k1lIg6I.jpg)
 
 #Intro & Brief
-“Haveado” is a Stag and Hen party planning app built using Angular and MongoDB. It was a great test of group development, managing git commits and ensuring tasks and assignments were well planned out.
+“Havado” is a Stag and Hen party planning app built using Angular and MongoDB. It was a great test of group development, managing git commits and ensuring tasks and assignments were well planned out.
