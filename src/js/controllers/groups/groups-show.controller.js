@@ -99,29 +99,20 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
 
   function addComment(){
     Group
-    .addComment({ id: vm.group._id }, vm.comment)
-    .$promise
-    .then((data) => {
-      console.log(data);
-      // console.log('comment has been successfully created!');
-      // console.log(group);
-      
-      vm.group.comments.push(vm.comment);
-      // $state.reload();
-      // console.log(vm.user);
-      // $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
-      // vm.destination = {};
-
-    });
+      .addComment({ id: vm.group._id }, vm.comment)
+      .$promise
+      .then(() => {
+        vm.group.comments.push({ user: vm.user ,  body: vm.comment.body});
+      });
   }
 
   function deleteComment(comment) {
     Group
-    .deleteComment({ groupId: vm.group._id, commentId: comment._id} )
-    .$promise
-    .then(() =>{
-      vm.group.comments.splice(vm.group.comments.indexOf(comment), 1);
-      vm.comment = {};
-    });
+      .deleteComment({ groupId: vm.group._id, commentId: comment._id} )
+      .$promise
+      .then(() =>{
+        vm.group.comments.splice(vm.group.comments.indexOf(comment), 1);
+        vm.comment = {};
+      });
   }
 }
