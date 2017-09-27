@@ -1,10 +1,10 @@
-/*attending*/
+  /*attending*/
 
 
 .peeps-1 {
   height: 200px;
   min-width: 100px;
-  color: ghostwhite;
+  color: #373f57;
   text-align: center;
 
   img {
@@ -19,7 +19,8 @@
 
 .title-bop {
   height: 100px;
-  background-color: antiquewhite;
+  background-color: #f2f2f2;
+  color: #373f57;
 }
 
 .realign-attending {
@@ -28,28 +29,34 @@
 
 
 /*comments*/
-.title-bop-2 {
-  height: 100px;
-  background-color: plum;
-}
+// .title-bop-2 {
+//   height: 100px;
+//   background-color:  #f2f2f2;
+// }
 
 .comments-main {
-  background-color: aqua;
+  background-color: #fff;
 }
 
 /*show comments*/
+.fixed-cont {
+  height: 500px;
+  overflow: scroll;
+}
+
 .comments-cont {
-  background-color: antiquewhite;
+  background-color: #fff;
   max-width: 80%;
   min-height: 125px;
   margin: 0 auto;
+  overflow-y: scroll;
 }
 
 .comment-body {
-  background-color: orchid;
+  background-color: #373f57;
   min-height: 90px;
   min-width: 256px;
-  color: white;
+  color: #A5B99E;
 
 }
 

@@ -111,16 +111,20 @@
     <!-- comments -->
     <div class=" pure-u-md-1-2">
       <div class="pure-g comments-main">
-        <div class="pure-u-1 title-bop-2">
+        <div class="pure-u-1 title-bop">
           <h1>Comments</h1>
         </div>
         <!--individual comments-->
-        <div class="comments-cont pure-u-1">
-          <div ng-repeat="comment in controller.group.comments" class="pure-g">
-            <div class="body-id-positioning comment-body pure-u-4-5">
-              <p>{{comment.body }}</p>
-            </div>
-            <!-- <div class="pure-u-1-12">
+
+
+
+          <div class="comments-cont pure-u-1">
+            <div class="fixed-cont">
+            <div ng-repeat="comment in controller.group.comments" class="pure-g">
+              <div class="body-id-positioning comment-body pure-u-4-5">
+                <p>{{comment.body }}</p>
+              </div>
+              <!-- <div class="pure-u-1-12">
               <button class="pure-button delete-button" ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id">X</button>
             </div> -->
             <div class="body-id-positioning comment-id pure-u-1-5">
@@ -128,23 +132,24 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!--  textarea form-->
-        <div class="eighty">
-          <div class="coments-text pure-u-1">
-            <form class="position-do" ng-submit="controller.addComment()">
+      <!--  textarea form-->
+      <div class="eighty">
+        <div class="coments-text pure-u-1">
+          <form class="position-do" ng-submit="controller.addComment()">
 
-              <div class="embed-submit-field">
-                <textarea rows="6" cols="80" type="text" ng-model="controller.comment.body" name="body" id="body"></textarea>
+            <div class="embed-submit-field">
+              <textarea rows="6" cols="80" type="text" ng-model="controller.comment.body" name="body" id="body"></textarea>
 
-              </div>
-              <button class="pure-button say-hi" type="submit" name="button">send</button>
-            </form>
-          </div>
+            </div>
+            <button class="pure-button say-hi" type="submit" name="button">send</button>
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>
 </section>
 
 
