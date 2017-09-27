@@ -122,11 +122,12 @@
             <div class="fixed-cont">
             <div ng-repeat="comment in controller.group.comments" class="pure-g">
               <div class="body-id-positioning comment-body pure-u-4-5">
-                <p>{{comment.body }}</p>
+                <p>{{ comment.body }}</p>
+                  <button class="pure-button delete-button" ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id" >X</button>
               </div>
-              <!-- <div class="pure-u-1-12">
-              <button class="pure-button delete-button" ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id">X</button>
-            </div> -->
+
+
+
             <div class="body-id-positioning comment-id pure-u-1-5">
               <img src="{{ comment.user.image }}" alt="">
             </div>
