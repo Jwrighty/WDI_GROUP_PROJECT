@@ -91,7 +91,7 @@ User
     title: 'Sophie\'s Fantabulous Hen do',
     image: 'https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
     dates: new Date(2018/3/6),
-    createdBy: users[4]._id,
+    createdBy: users[0]._id,
     members: [users[1]._id],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
   },{
@@ -99,14 +99,14 @@ User
     image: 'https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
     dates: new Date(2018/3/6),
     createdBy: users[1]._id,
-    members: [users[4]._id],
+    members: [users[0]._id],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
   },{
     title: 'Andy\'s Stag - lads, lads, lads',
     image: 'https://images.pexels.com/photos/544988/pexels-photo-544988.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
     dates: new Date(2018/5/7),
     createdBy: users[1]._id,
-    members: [users[4]._id],
+    members: [users[0]._id],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
   },{
     title: 'Paul the Don - last night of freedom',
