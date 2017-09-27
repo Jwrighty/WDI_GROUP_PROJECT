@@ -1,8 +1,17 @@
 .homeImg {
-  .header-image {
-    width: 100%;
-    height: 100%;
+  .stag {
+    background-image: url('/images/Stag.jpeg');
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
   }
+  .hen {
+    background-image: url('/images/hen.jpeg');
+    background-size: cover;
+    background-position: bottom;
+    height: 100vh;
+  }
+  
   .tagline {
     position: absolute;
     // top: 350px;

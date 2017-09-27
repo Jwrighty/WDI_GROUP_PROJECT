@@ -2,8 +2,8 @@ angular
 .module('project3')
 .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService', '$rootScope'];
-function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope) {
+GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService', '$rootScope', '$state'];
+function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope, $state) {
   const vm = this;
 
   vm.destination            = {};
@@ -101,15 +101,8 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
     Group
       .addComment({ id: vm.group._id }, vm.comment)
       .$promise
-      .then(group => {
-        console.log('comment has been successfully created!');
-        console.log(group);
-        vm.group.comments.push(vm.comments);
-
-
-        $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
-        vm.destination = {};
-
+      .then(() => {
+        vm.group.comments.push({ user: vm.user ,  body: vm.comment.body});
       });
   }
 
