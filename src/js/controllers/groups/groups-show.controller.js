@@ -106,9 +106,9 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
       // console.log(group);
       vm.group.comments.push(vm.comment);
       // $state.reload();
-
-      $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
-      vm.destination = {};
+      console.log(vm.user);
+      // $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
+      // vm.destination = {};
 
     });
   }
