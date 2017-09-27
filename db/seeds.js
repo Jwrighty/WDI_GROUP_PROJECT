@@ -11,19 +11,19 @@ Group.collection.drop();
 
 User
 .create([{
-  username: 'bear',
-  firstName: 'bear',
-  lastName: 'bear',
-  image: 'http://www.wikiality.com/file/2016/11/bears1.jpg',
-  email: 'bear@bear.com',
+  username: 'LizzieLols',
+  firstName: 'Lizzie',
+  lastName: 'bearton',
+  image: 'https://images.pexels.com/photos/157907/smile-color-laugh-black-157907.jpeg?h=350&auto=compress&cs=tinysrgb',
+  email: 'lizzie@bearton.com',
   password: 'password',
   passwordConfirmation: 'password'
 },{
-  username: 'monkey',
-  firstName: 'monkey',
-  lastName: 'monkey',
-  image: 'http://2.bp.blogspot.com/-dl_bE1deWOs/UOFq7WKFprI/AAAAAAAAKnY/QHyiPa3oSco/s1600/wallpaper-of-a-drinking-monkey-hd-monkeys-wallpapers.jpg',
-  email: 'monkey@monkey.com',
+  username: 'TomTom',
+  firstName: 'Tom',
+  lastName: 'Monkey',
+  image: 'https://images.pexels.com/photos/447189/pexels-photo-447189.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+  email: 'tom@monkey.com',
   password: 'password',
   passwordConfirmation: 'password'
 },{
@@ -57,10 +57,56 @@ User
   },
   {
     title: 'Harriet\'s Hilarious Hen Do',
-    image: 'https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?w=940&h=650&auto=compress&cs=tinysrgb',
+    image: 'https://images.pexels.com/photos/5390/sunset-hands-love-woman.jpg?w=1260&h=750&auto=compress&cs=tinysrgb',
     dates: new Date(2017/12/31),
     createdBy: users[3]._id,
     members: [users[0]._id],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },
+  {
+    title: 'Phil\'s Stag to end all Stags',
+    image: 'https://images.pexels.com/photos/71104/utah-mountain-biking-bike-biking-71104.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+    dates: new Date(2018/12/31),
+    createdBy: users[2]._id,
+    members: [users[0]._id],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },
+  {
+    title: 'Gary\'s Stag',
+    image: 'https://images.pexels.com/photos/68775/pexels-photo-68775.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+    dates: new Date(2018/3/12),
+    createdBy: users[2]._id,
+    members: [users[1]._id],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },
+  {
+    title: 'Lucy\'s Lavish Hen do',
+    image: 'https://images.pexels.com/photos/3192/woman-girl-beauty-mask.jpg?w=1260&h=750&auto=compress&cs=tinysrgb',
+    dates: new Date(2018/5/6),
+    createdBy: users[1]._id,
+    members: [users[1]._id],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },
+  {
+    title: 'Sophie\'s Fantabulous Hen do',
+    image: 'https://images.pexels.com/photos/573299/pexels-photo-573299.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+    dates: new Date(2018/3/6),
+    createdBy: users[4]._id,
+    members: [users[1]._id],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },{
+    title: 'Claudia\'s Hen whoop whoop',
+    image: 'https://images.pexels.com/photos/58592/pexels-photo-58592.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+    dates: new Date(2018/3/6),
+    createdBy: users[1]._id,
+    members: [users[4]._id],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+  },{
+    title: 'Andy\'s Stag - lads, lads, lads',
+    image: 'https://images.pexels.com/photos/544988/pexels-photo-544988.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+    dates: new Date(2018/5/7),
+    createdBy: users[1]._id,
+    members: [users[4]._id],
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
   },{
     title: 'Paul the Don - last night of freedom',
