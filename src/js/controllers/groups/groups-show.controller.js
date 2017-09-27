@@ -2,8 +2,8 @@ angular
 .module('project3')
 .controller('GroupsShowCtrl', GroupsShowCtrl);
 
-GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService', '$rootScope'];
-function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope) {
+GroupsShowCtrl.$inject = ['$scope', 'Group', '$stateParams', 'CurrentUserService', '$rootScope', '$state'];
+function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootScope, $state) {
   const vm = this;
 
   vm.destination            = {};
@@ -99,27 +99,27 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
 
   function addComment(){
     Group
-      .addComment({ id: vm.group._id }, vm.comment)
-      .$promise
-      .then(group => {
-        console.log('comment has been successfully created!');
-        console.log(group);
-        vm.group.comments.push(vm.comments);
+    .addComment({ id: vm.group._id }, vm.comment)
+    .$promise
+    .then(() => {
+      // console.log('comment has been successfully created!');
+      // console.log(group);
+      vm.group.comments.push(vm.comment);
+      // $state.reload();
 
+      $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
+      vm.destination = {};
 
-        $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
-        vm.destination = {};
-
-      });
+    });
   }
 
   function deleteComment(comment) {
     Group
-      .deleteComment({ groupId: vm.group._id, commentId: comment._id} )
-      .$promise
-      .then(() =>{
-        vm.group.comments.splice(vm.group.comments.indexOf(comment), 1);
-        vm.comment = {};
-      });
+    .deleteComment({ groupId: vm.group._id, commentId: comment._id} )
+    .$promise
+    .then(() =>{
+      vm.group.comments.splice(vm.group.comments.indexOf(comment), 1);
+      vm.comment = {};
+    });
   }
 }
