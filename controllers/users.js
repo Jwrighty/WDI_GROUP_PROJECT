@@ -15,13 +15,30 @@ function usersShow(req, res) {
   });
 }
 
-function usersUpdate(req, res) {
-  User.findByIdAndUpdate(req.params.id, req.body.user, { new: true },  (err, user) => {
-    if (err) return res.status(500).json({ message: 'Something went wrong.' });
-    if (!user) return res.status(404).json({ message: 'User not found.' });
-    return res.status(200).json(user);
-  });
+// function usersUpdate(req, res) {
+//   User.findByIdAndUpdate(req.params.id, req.body.user, { new: true },  (err, user) => {
+//     if (err) return res.status(500).json({ message: 'Something went wrong.' });
+//     if (!user) return res.status(404).json({ message: 'User not found.' });
+//     return res.status(200).json(user);
+//   });
+// }
+
+function usersUpdate(req, res){
+  User
+  .findById(req.params.id)
+  .exec()
+  .then(user => {
+    if(!user) return res.status(404).json({ message: 'no user found'});
+
+    for(const field in req.body ){
+      user[field] = req.body[field];
+    }
+    return user.save();
+  })
+  .then(user => res.status(200).json(user))
+  .catch(err => res.status(500).json(err));
 }
+
 
 function usersDelete(req, res) {
   User.findByIdAndRemove(req.params.id, (err, user) => {
