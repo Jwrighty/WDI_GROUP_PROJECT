@@ -101,12 +101,14 @@ function GroupsShowCtrl($scope, Group, $stateParams, CurrentUserService, $rootSc
     Group
     .addComment({ id: vm.group._id }, vm.comment)
     .$promise
-    .then(() => {
+    .then((data) => {
+      console.log(data);
       // console.log('comment has been successfully created!');
       // console.log(group);
+      
       vm.group.comments.push(vm.comment);
       // $state.reload();
-      console.log(vm.user);
+      // console.log(vm.user);
       // $rootScope.$broadcast('updatedDestinations', { data: vm.group.destinations });
       // vm.destination = {};
 
