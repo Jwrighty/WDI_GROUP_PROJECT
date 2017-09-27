@@ -15,8 +15,6 @@ function groupCreateRoute(req, res){
   .catch(err => res.status(500).json(err));
 }
 
-
-
 function groupShowRoute(req, res){
   Group
   .findById(req.params.id)

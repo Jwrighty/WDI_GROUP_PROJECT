@@ -1,6 +1,6 @@
 @import 'form';
 // @import 'errors';
-// @import 'comments';
+@import 'comments';
 @import 'map-locations';
 @import 'index';
 @import 'show';
@@ -37,3 +37,12 @@ a{
     list-style-type: none;
   }
 }
+
+.pure-g > div {
+           -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+           box-sizing: border-box;
+       }
+       .l-box {
+           padding: 1em;
+       }

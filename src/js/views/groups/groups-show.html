@@ -85,42 +85,106 @@
 </div>
 
 <section class="bottom-of-page">
-
-
-  <div class="pure-g comments-and-attending">
-    <div class="pure-u-1-2 comments">
-      <div class="write-comments">
-      <form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
-        <fieldset>
-          <h2>Comments</h2>
-          <textarea rows="4" cols="50" class="comments-box" type="text" ng-model="controller.comment.body" name="body" id="body"></textarea>
-          <button class="pure-button comment-submit" type="submit" name="button">Comment</button>
-        </fieldset>
-      </form>
-      </div>
-      <div class="display-comments">
-        <div ng-repeat="comment in controller.group.comments" >
-          <ul>
-            <li class="comments-list" ng-class="MainCtrl.user._id === comment.user._id ? 'float-right' : 'float-left'">
-              <p><strong ng-hide="MainCtrl.user._id === comment.user._id">{{ comment.user.username }}:</strong> <br>{{comment.body }}</p>
-              <button class="pure-button" ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id ">X</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="pure-u-1-2 whos-attending">
-      <h2>Who's coming:</h2>
-      <div class="pure-g">
-        <div class="profile pure-u-1-6" ng-repeat="item in controller.group.members">
-          <div class="avatar">
-            <img class=" pure-img" src="{{ item.image }}" >
+  <div class="pure-g">
+    <!-- who attending -->
+    <div class="realign-attending pure-u-md-1-2">
+      <div class="pure-g whos-attending">
+        <div class="pure-u-1">
+          <div class="title-bop">
+            <h1>Who's Attending...</h1>
           </div>
-          <p>{{ item.username}}</p>
+        </div>
+        <!-- attending grid -->
+        <div class="pure-g attending-grid">
+          <div ng-repeat="item in controller.group.members">
+            <div class="peeps-1 pure-u-lg-1-4 pure-u-md-1-2 pure-u-1">
+              <img class="pure-img" src="{{ item.image }}" alt="">
+              <p>{{ item.username }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
+
+
+    <!-- comments -->
+    <div class=" pure-u-md-1-2">
+      <div class="pure-g comments-main">
+        <div class="pure-u-1 title-bop-2">
+          <h1>Comments</h1>
+        </div>
+        <!--individual comments-->
+        <div class="comments-cont pure-u-1">
+          <div ng-repeat="comment in controller.group.comments" class="pure-g">
+            <div class="body-id-positioning comment-body pure-u-4-5">
+              <p>{{comment.body }}</p>
+            </div>
+            <!-- <div class="pure-u-1-12">
+              <button class="pure-button delete-button" ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id">X</button>
+            </div> -->
+            <div class="body-id-positioning comment-id pure-u-1-5">
+              <img src="{{ comment.user.image }}" alt="">
+            </div>
+          </div>
+        </div>
+
+        <!--  textarea form-->
+        <div class="eighty">
+          <div class="coments-text pure-u-1">
+            <form class="position-do" ng-submit="controller.addComment()">
+
+              <div class="embed-submit-field">
+                <textarea rows="6" cols="80" type="text" ng-model="controller.comment.body" name="body" id="body"></textarea>
+
+              </div>
+              <button class="pure-button say-hi" type="submit" name="button">send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+
+
+
+
+
+<!-- <div class="pure-g comments-and-attending">
+<div class="pure-u-1-2 comments">
+<div class="write-comments">
+<form ng-submit="controller.addComment()" class="pure-form pure-form-stacked">
+<fieldset>
+<h2>Comments</h2>
+<textarea rows="4" cols="50" class="comments-box" type="text" ng-model="controller.comment.body" name="body" id="body"></textarea>
+<button class="pure-button comment-submit" type="submit" name="button">Comment</button>
+</fieldset>
+</form>
+</div>
+<div class="display-comments">
+<div ng-repeat="comment in controller.group.comments" >
+<ul>
+<li class="comments-list" ng-class="MainCtrl.user._id === comment.user._id ? 'float-right' : 'float-left'">
+<p><strong ng-hide="MainCtrl.user._id === comment.user._id">{{ comment.user.username }}:</strong> <br>{{comment.body }}</p>
+<button class="pure-button" ng-click="controller.deleteComment(comment)" ng-show="MainCtrl.user._id === comment.user._id ">X</button>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="pure-u-1-2 whos-attending">
+<h2>Who's coming:</h2>
+<div class="pure-g">
+<div class="profile pure-u-1-6" ng-repeat="item in controller.group.members">
+<div class="avatar">
+<img class=" pure-img" src="{{ item.image }}" >
+</div>
+<p>{{ item.username}}</p>
+</div>
+</div>
+</div>
+
+</div> -->
