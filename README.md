@@ -1,6 +1,6 @@
 # WDI-GROUP-PROJECT - HAVADO
 
-Heroku: [https://frozen-savannah-91722.herokuapp.com/]()
+[Heroku](https://frozen-savannah-91722.herokuapp.com/)
 
 **Skills** : HTML5, SCSS, JavaScript ES6, Gulp, NPM, Git & GitHub, Express, Node.js, Yarn, Bootstrap, JSON, AngularJS, Mocha, JWT, MongoDB.
 
